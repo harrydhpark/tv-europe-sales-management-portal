@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV EU/CIS Sales & Marketing Portal | 해외영업 대시보드 포털</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-layout">
+  <!-- Fullscreen Login Screen Overlay -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header">
+          <div class="login-brand-logo">
+            <i class="ri-shield-keyhole-line login-logo-icon"></i>
+          </div>
+          <h1 class="login-title">TV EU/CIS Sales & Marketing Portal</h1>
+          <p class="login-subtitle">보안 대시보드 시스템 접속을 위해 인증 정보를 입력해 주세요.</p>
+        </div>
+
+        <form id="loginForm" class="login-form" autocomplete="off" onsubmit="return false;">
+          <div class="input-group">
+            <label for="usernameInput"><i class="ri-user-3-line"></i> 아이디 (ID)</label>
+            <div class="input-wrapper">
+              <input type="text" id="usernameInput" placeholder="아이디 입력 (대소문자 구분)" required autocomplete="username">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="passwordInput"><i class="ri-lock-2-line"></i> 비밀번호 (Password)</label>
+            <div class="input-wrapper">
+              <input type="password" id="passwordInput" placeholder="비밀번호 입력 (대소문자 구분)" required autocomplete="current-password">
+              <button type="button" id="togglePasswordBtn" class="toggle-password-btn" title="비밀번호 표시/숨기기">
+                <i class="ri-eye-off-line" id="togglePasswordIcon"></i>
+              </button>
+            </div>
+          </div>
+
+          <div id="capsLockWarning" class="caps-lock-warning" style="display: none;">
+            <i class="ri-error-warning-fill"></i> <span>Caps Lock이 켜져 있습니다.</span>
+          </div>
+
+          <div id="loginErrorMessage" class="login-error-message" style="display: none;">
+            <i class="ri-close-circle-fill"></i> <span id="loginErrorText">아이디 또는 비밀번호가 일치하지 않습니다.</span>
+          </div>
+
+          <button type="submit" id="loginSubmitBtn" class="login-submit-btn">
+            <span>접속하기</span>
+            <i class="ri-arrow-right-line"></i>
+          </button>
+        </form>
+
+        <div class="login-footer-info">
+          <i class="ri-information-line"></i>
+          <span>본 시스템은 LGE TV EU/CIS Sales & Marketing 전용 자산입니다.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar-nav">
+    <div class="sidebar-header">
+      <div class="brand-logo">
+        <i class="ri-dashboard-3-line logo-icon"></i>
+        <div class="brand-title">
+          <span class="brand-name">TV EU/CIS Sales & Marketing</span>
+          <span class="badge-portal">PORTAL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation List -->
+    <nav class="sidebar-menu">
+      <div class="menu-group">
+        <button class="nav-item active" data-category="ALL" data-period="ALL" id="navHome">
+          <i class="ri-home-4-line nav-icon"></i>
+          <span>대시보드 포털 홈</span>
+          <span class="menu-count" id="countAll">14</span>
+        </button>
+
+        <button class="nav-item" data-period="DAILY" id="navDaily">
+          <i class="ri-flashlight-line nav-icon period-icon-daily"></i>
+          <span>Daily 대시보드</span>
+          <span class="menu-count" id="countDaily">3</span>
+        </button>
+
+        <button class="nav-item" data-period="WEEKLY" id="navWeekly">
+          <i class="ri-calendar-event-line nav-icon period-icon-weekly"></i>
+          <span>Weekly 대시보드</span>
+          <span class="menu-count" id="countWeekly">3</span>
+        </button>
+
+        <button class="nav-item" data-period="MONTHLY" id="navMonthly">
+          <i class="ri-calendar-todo-line nav-icon period-icon-monthly"></i>
+          <span>Monthly 대시보드</span>
+          <span class="menu-count" id="countMonthly">8</span>
+        </button>
+      </div>
+
+      <div class="menu-section-label">BUSINESS CATEGORIES</div>
+
+      <!-- Category 1: 매출/손익 관리 -->
+      <div class="category-accordion" id="accordion-sales">
+        <button class="accordion-header" data-category="매출/손익 관리">
+          <div class="header-left-content">
+            <i class="ri-line-chart-line cat-icon"></i>
+            <span>매출/손익 관리</span>
+          </div>
+          <div class="header-right-content">
+            <span class="cat-count">6</span>
+            <i class="ri-chevron-down-line arrow-icon"></i>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <button class="sub-nav-item" data-id="daily-sales-progress"><i class="ri-pulse-line"></i> Daily Sales Progress</button>
+          <button class="sub-nav-item" data-id="kpi-sheet"><i class="ri-file-list-3-line"></i> KPI Sheet</button>
+          <button class="sub-nav-item" data-id="pnl-analysis"><i class="ri-funds-box-line"></i> TV P&L Analysis</button>
+          <button class="sub-nav-item" data-id="gdmi-weekly"><i class="ri-calendar-check-line"></i> GDMI Weekly Sellout</button>
+          <button class="sub-nav-item" data-id="pre-profitability"><i class="ri-calculator-line"></i> 선행 수익성 분석</button>
+          <button class="sub-nav-item" data-id="profit-simulator"><i class="ri-dashboard-2-line"></i> 수익성 Simulator</button>
+        </div>
+      </div>
+
+      <!-- Category 2: 제품 정보 -->
+      <div class="category-accordion" id="accordion-product">
+        <button class="accordion-header" data-category="제품 정보">
+          <div class="header-left-content">
+            <i class="ri-tv-line cat-icon"></i>
+            <span>제품 정보</span>
+          </div>
+          <div class="header-right-content">
+            <span class="cat-count">3</span>
+            <i class="ri-chevron-down-line arrow-icon"></i>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <button class="sub-nav-item" data-id="tv-prm"><i class="ri-tv-2-line"></i> TV PRM</button>
+          <button class="sub-nav-item" data-id="spec-sheet"><i class="ri-article-line"></i> Spec Sheet</button>
+          <button class="sub-nav-item" data-id="tv-profile"><i class="ri-presentation-line"></i> TV Product profile</button>
+        </div>
+      </div>
+
+      <!-- Category 3: 가격 관리 -->
+      <div class="category-accordion" id="accordion-pricing">
+        <button class="accordion-header" data-category="가격 관리">
+          <div class="header-left-content">
+            <i class="ri-price-tag-3-line cat-icon"></i>
+            <span>가격 관리</span>
+          </div>
+          <div class="header-right-content">
+            <span class="cat-count">2</span>
+            <i class="ri-chevron-down-line arrow-icon"></i>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <button class="sub-nav-item" data-id="price-tracker"><i class="ri-price-tag-3-line"></i> Price Tracker</button>
+          <button class="sub-nav-item" data-id="ata-guide"><i class="ri-shield-check-line"></i> ATA Guide</button>
+        </div>
+      </div>
+
+      <!-- Category 4: 시장 정보 -->
+      <div class="category-accordion" id="accordion-market">
+        <button class="accordion-header" data-category="시장 정보">
+          <div class="header-left-content">
+            <i class="ri-earth-line cat-icon"></i>
+            <span>시장 정보</span>
+          </div>
+          <div class="header-right-content">
+            <span class="cat-count">3</span>
+            <i class="ri-chevron-down-line arrow-icon"></i>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <button class="sub-nav-item" data-id="gfk-monthly"><i class="ri-pie-chart-2-line"></i> GfK Monthly Report</button>
+          <button class="sub-nav-item" data-id="ms-trend"><i class="ri-bar-chart-grouped-line"></i> M/S Trend</button>
+          <button class="sub-nav-item" data-id="fx-monitor"><i class="ri-money-dollar-circle-line"></i> FX-Monitor</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <div class="avatar" id="sidebarAvatar">LGE</div>
+        <div class="user-info">
+          <span class="user-name" id="sidebarUserName">LGE135</span>
+          <span class="user-role">EU/CIS Sales & Marketing</span>
+        </div>
+      </div>
+      <button class="logout-btn" id="logoutBtn" title="로그아웃">
+        <i class="ri-logout-box-r-line"></i>
+        <span>로그아웃</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Right Main Workspace Container -->
+  <div class="workspace-container">
+    <!-- Main Content Body -->
+    <main class="main-content">
+      <div class="content-header">
+        <div class="header-main-row">
+          <div class="section-title-group">
+            <div class="title-with-badge">
+              <h2 id="currentCategoryTitle">TV 해외영업 업무지원 포털</h2>
+              <span class="exec-status-chip"><i class="ri-pulse-line"></i> Live Executive Portal</span>
+            </div>
+            <p class="section-desc" id="currentCategoryDesc">해외영업 실적, 제품 로드맵, 가격 가이드 및 GfK 시장 데이터를 통합 조회할 수 있는 에이전트 포털입니다.</p>
+          </div>
+          <div class="view-controls">
+            <button class="icon-btn" id="configUrlBtn" title="에이전트 URL 설정">
+              <i class="ri-links-line"></i>
+              <span>에이전트 URL 관리</span>
+            </button>
+            <div class="total-cards-badge">
+              <i class="ri-apps-2-line"></i>
+              <span>TOTAL</span>
+              <strong id="visibleCardCount">14</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- STITCH Executive Filter & Search Toolbar -->
+        <div class="executive-toolbar">
+          <div class="search-box-wrapper">
+            <i class="ri-search-2-line search-icon"></i>
+            <input type="text" id="searchInput" placeholder="대시보드 키워드, 에이전트명, 카테고리 검색..." autocomplete="off">
+            <button type="button" id="clearSearchBtn" class="clear-search-btn" title="검색어 초기화" style="display: none;">
+              <i class="ri-close-circle-fill"></i>
+            </button>
+          </div>
+          <div class="category-chips-scroll" id="categoryChips">
+            <button class="chip-btn active" data-category="ALL"><i class="ri-grid-fill"></i> 전체보기</button>
+            <button class="chip-btn" data-category="매출/손익 관리"><i class="ri-line-chart-line"></i> 매출/손익 관리</button>
+            <button class="chip-btn" data-category="제품 정보"><i class="ri-tv-line"></i> 제품 정보</button>
+            <button class="chip-btn" data-category="가격 관리"><i class="ri-price-tag-3-line"></i> 가격 관리</button>
+            <button class="chip-btn" data-category="시장 정보"><i class="ri-earth-line"></i> 시장 정보</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Cards Grid -->
+      <div class="cards-grid" id="cardsGrid">
+        <!-- Dynamic Cards rendered via JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Agent Site Fullscreen Viewer Overlay -->
+  <div class="agent-viewer-overlay" id="agentViewerOverlay">
+    <!-- Fixed Sticky Top Navigation Bar -->
+    <div class="viewer-top-bar">
+      <div class="viewer-left">
+        <button class="back-to-portal-btn" id="closeViewerBtn">
+          <i class="ri-arrow-left-line"></i>
+          <span>포탈로 돌아가기</span>
+        </button>
+        <div class="viewer-title-group">
+          <span class="viewer-category-badge" id="viewerCategory">매출/손익 관리</span>
+          <h3 class="viewer-title" id="viewerTitle">TV P&L Analysis</h3>
+        </div>
+      </div>
+
+      <div class="viewer-right">
+        <span class="agent-status-tag" id="viewerStatusTag"><i class="ri-robot-line"></i> Agent Live Connected</span>
+        <a href="#" target="_blank" class="viewer-external-btn" id="viewerExternalLink" title="새 탭으로 열기">
+          <i class="ri-external-link-line"></i> 새 탭으로 열기
+        </a>
+        <button class="viewer-close-x" id="closeViewerXBtn" title="닫기 (포탈 복귀)">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Viewer Frame Container -->
+    <div class="viewer-frame-container">
+      <!-- External Iframe -->
+      <iframe id="agentIframe" class="agent-iframe" src="" style="display:none;" frameborder="0"></iframe>
+      
+      <!-- Embedded Mock Interactive Dashboard Container (when no external URL is set) -->
+      <div id="mockDashboardContainer" class="mock-dashboard-container">
+        <!-- Dynamic Mock Dashboard HTML -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Agent URL Configuration Modal -->
+  <div class="modal-overlay" id="configModalOverlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="ri-settings-4-line"></i> 에이전트 대시보드 URL 관리</h3>
+        <button class="modal-close" id="closeConfigModalBtn"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">각 업무 카드에 연결할 외부 에이전트 사이트 URL을 등록하세요. 미설정 시 고품질 시연 대시보드가 적용됩니다.</p>
+        <div class="url-config-list" id="urlConfigList">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="secondary-btn" id="resetUrlsBtn">초기화</button>
+        <button class="primary-btn" id="saveUrlsBtn"><i class="ri-save-line"></i> 설정 저장</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=20260729_6"></script>
+</body>
+</html>

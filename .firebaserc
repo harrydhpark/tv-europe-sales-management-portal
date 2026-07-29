@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "kpi-sheet-europe-2026"
+  },
+  "targets": {
+    "kpi-sheet-europe-2026": {
+      "hosting": {
+        "sales-portal": [
+          "tv-sales-portal-2026"
+        ]
+      }
+    }
+  }
+}
