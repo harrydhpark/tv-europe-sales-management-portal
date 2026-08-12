@@ -24,7 +24,7 @@ async function sha256(message) {
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-// 14 Dashboard Definitions with Custom Preview Graphics (No numerical values)
+// 15 Dashboard Definitions with Custom Preview Graphics (No numerical values)
 const DASHBOARDS = [
   // 1. 매출/손익 관리 (6 Cards)
   {
@@ -35,7 +35,7 @@ const DASHBOARDS = [
     title: "Daily Sales Progress",
     desc: "유럽 권역 및 법인별 일간 실시간 매출 진척률, 월 목표 대비 일일 출하 모니터링",
     updated: "Live Today 14:20",
-    agentUrl: "",
+    agentUrl: "https://eucisdailysales.apps.hedej.lge.com/",
     icon: "ri-pulse-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@ const DASHBOARDS = [
     title: "KPI Sheet",
     desc: "권역 및 법인별 매출 실적, 출하 및 재고 주수(WOS) 등 핵심 영업 KPI 종합 모니터링",
     updated: "Today 09:30",
-    agentUrl: "",
+    agentUrl: "https://kpi-sheet-europe-2026.web.app",
     icon: "ri-file-list-3-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,7 +91,7 @@ const DASHBOARDS = [
     title: "TV P&L Analysis",
     desc: "TV 사업부 매출원가, 판촉비, 손익구조 심층 분석 및 영업이익률 트렌드",
     updated: "Today 08:15",
-    agentUrl: "",
+    agentUrl: "https://lge-tv-pnl-2026.web.app",
     icon: "ri-funds-box-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +118,7 @@ const DASHBOARDS = [
     title: "GDMI Weekly Sellout Analysis",
     desc: "주차별 유럽 15개국 법인/유통 주간 Sellout 실적 및 재고 분석 리포트",
     updated: "2026-07-22",
-    agentUrl: "",
+    agentUrl: "https://gdmi-weekly-dashboard.web.app",
     icon: "ri-calendar-check-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,7 +147,7 @@ const DASHBOARDS = [
     title: "선행 수익성 분석",
     desc: "신규 수주 및 출하 전 시나리오별 선행 이익률 예측 및 시뮬레이션 타당성 검증",
     updated: "Today 11:00",
-    agentUrl: "",
+    agentUrl: "https://lge-advance-profitability-2026.web.app",
     icon: "ri-calculator-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -170,7 +170,7 @@ const DASHBOARDS = [
     title: "수익성 Simulator",
     desc: "환율, 원가, 유통 장려금 변동 민감도 시뮬레이션 및 손익 시나리오 분석 도구",
     updated: "2026-07-21",
-    agentUrl: "",
+    agentUrl: "https://lge-profitability-simulator-2026.web.app",
     icon: "ri-dashboard-2-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -185,7 +185,7 @@ const DASHBOARDS = [
     `
   },
 
-  // 2. 제품 정보 (3 Cards)
+  // 2. 제품 정보 (4 Cards)
   {
     id: "tv-prm",
     category: "제품 정보",
@@ -194,7 +194,7 @@ const DASHBOARDS = [
     title: "TV PRM",
     desc: "TV Product Roadmap / 연간 모델 라인업 출시 일정 및 세그먼트 스펙",
     updated: "2026-07-20",
-    agentUrl: "",
+    agentUrl: "https://lge-product-showcase-2026.web.app",
     icon: "ri-tv-2-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -225,7 +225,7 @@ const DASHBOARDS = [
     title: "Spec Sheet",
     desc: "OLED/QNED/NanoCell 모델별 세부 사양 비교, 패널 정보 및 기술 사양서 조회",
     updated: "2026-07-19",
-    agentUrl: "",
+    agentUrl: "https://lge-product-showcase-2026.web.app",
     icon: "ri-article-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -251,7 +251,7 @@ const DASHBOARDS = [
     title: "TV Product profile",
     desc: "전략 모델 및 시리즈별 USP, 셀링 포인트, 주요 유통 타깃 사양 프로파일",
     updated: "2026-07-18",
-    agentUrl: "",
+    agentUrl: "https://lge-product-showcase-2026.web.app",
     icon: "ri-presentation-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -267,6 +267,45 @@ const DASHBOARDS = [
       </svg>
     `
   },
+  {
+    id: "dealer-trip-calendar",
+    category: "제품 정보",
+    categoryKey: "product",
+    period: "monthly",
+    title: "거래선 방한 상담 일정 캘린더",
+    desc: "유럽/CIS 주요 거래선 방한 일정, 본사 미팅 스케줄 및 상담 내역 통합 관리 캘린더",
+    updated: "Live Today",
+    agentUrl: "https://dealertrip.apps.hedej.lge.com/",
+    icon: "ri-calendar-event-line",
+    previewSvg: `
+      <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="110" fill="#F8FAFC"/>
+        <!-- Calendar Window Frame -->
+        <rect x="25" y="16" width="250" height="78" rx="6" fill="#FFF" stroke="#CBD5E1" stroke-width="1.5"/>
+        <!-- Calendar Header Bar -->
+        <rect x="25" y="16" width="250" height="22" rx="6" fill="#0F172A"/>
+        <rect x="25" y="32" width="250" height="6" fill="#0F172A"/>
+        <text x="36" y="31" fill="#FFF" font-family="Inter, sans-serif" font-size="10" font-weight="700">DEALER VISIT CALENDAR</text>
+        <rect x="215" y="21" width="52" height="12" rx="3" fill="#0D9488"/>
+        <text x="220" y="30" fill="#FFF" font-family="Inter, sans-serif" font-size="8" font-weight="700">2026 VISIT</text>
+        <!-- Grid Lines -->
+        <line x1="25" y1="56" x2="275" y2="56" stroke="#F1F5F9" stroke-width="1"/>
+        <line x1="25" y1="74" x2="275" y2="74" stroke="#F1F5F9" stroke-width="1"/>
+        <line x1="87" y1="38" x2="87" y2="94" stroke="#F1F5F9" stroke-width="1"/>
+        <line x1="150" y1="38" x2="150" y2="94" stroke="#F1F5F9" stroke-width="1"/>
+        <line x1="212" y1="38" x2="212" y2="94" stroke="#F1F5F9" stroke-width="1"/>
+        <!-- Event Pills -->
+        <rect x="30" y="42" width="52" height="11" rx="2" fill="#0D9488"/>
+        <text x="33" y="50" fill="#FFF" font-family="Inter, sans-serif" font-size="7" font-weight="700">EU HQ Visit</text>
+        <rect x="92" y="60" width="53" height="11" rx="2" fill="#3B82F6"/>
+        <text x="95" y="68" fill="#FFF" font-family="Inter, sans-serif" font-size="7" font-weight="700">Retail Conf</text>
+        <rect x="155" y="42" width="52" height="11" rx="2" fill="#10B981"/>
+        <text x="158" y="50" fill="#FFF" font-family="Inter, sans-serif" font-size="7" font-weight="700">Lineup Tour</text>
+        <rect x="217" y="78" width="53" height="11" rx="2" fill="#F59E0B"/>
+        <text x="220" y="86" fill="#FFF" font-family="Inter, sans-serif" font-size="7" font-weight="700">Biz Meeting</text>
+      </svg>
+    `
+  },
 
   // 3. 가격 관리 (2 Cards)
   {
@@ -277,7 +316,7 @@ const DASHBOARDS = [
     title: "Price Tracker",
     desc: "국가별/유통별 실시간 매장 및 온라인 판매 가격(ASP) 추적 및 Price Gap 분석",
     updated: "Today 10:45",
-    agentUrl: "",
+    agentUrl: "https://eu-price-tracker-lge.web.app",
     icon: "ri-price-tag-3-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -299,7 +338,7 @@ const DASHBOARDS = [
     title: "ATA Guide",
     desc: "Authorization To Act / 권역별 최저 승인 판매 가격 가이드라인 및 승인 현황",
     updated: "Today 07:50",
-    agentUrl: "",
+    agentUrl: "https://lge-product-showcase-2026.web.app/docs/ata-guide/",
     icon: "ri-shield-check-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -323,7 +362,7 @@ const DASHBOARDS = [
     title: "GfK Monthly Report",
     desc: "유럽 주요 12개국 GfK 월간 시장 수량/금액 수집 데이터 보고서 및 세그먼트 분석",
     updated: "2026-07-15",
-    agentUrl: "",
+    agentUrl: "https://gfk-report-monthly-lge.web.app",
     icon: "ri-pie-chart-2-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -348,7 +387,7 @@ const DASHBOARDS = [
     title: "M/S Trend",
     desc: "경쟁사(Samsung, Sony, Hisense) 대비 브랜드별/인치별 Market Share 트렌드",
     updated: "2026-07-15",
-    agentUrl: "",
+    agentUrl: "https://tv-ms-trend-dashboard.web.app",
     icon: "ri-bar-chart-grouped-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -371,7 +410,7 @@ const DASHBOARDS = [
     title: "FX-Monitor",
     desc: "글로벌 주요 통화(EUR, USD, GBP, PLN 등) 환율 변동 추이 및 실적 리스크 분석",
     updated: "Live Auto",
-    agentUrl: "",
+    agentUrl: "https://ac-fx-monitor-test.apps.hedej.lge.com/",
     icon: "ri-money-dollar-circle-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -411,6 +450,30 @@ function saveStoredCustomUrls(data) {
   try {
     document.cookie = "portal_custom_urls=" + encodeURIComponent(jsonStr) + "; path=/; max-age=31536000";
   } catch (e) {}
+}
+
+const DEFAULT_AGENT_URLS = {
+  "daily-sales-progress": "https://eucisdailysales.apps.hedej.lge.com/",
+  "kpi-sheet": "https://kpi-sheet-europe-2026.web.app",
+  "pnl-analysis": "https://lge-tv-pnl-2026.web.app",
+  "gdmi-weekly": "https://gdmi-weekly-dashboard.web.app",
+  "pre-profitability": "https://lge-advance-profitability-2026.web.app",
+  "profit-simulator": "https://lge-profitability-simulator-2026.web.app",
+  "tv-prm": "https://lge-product-showcase-2026.web.app",
+  "spec-sheet": "https://lge-product-showcase-2026.web.app",
+  "tv-profile": "https://lge-product-showcase-2026.web.app",
+  "price-tracker": "https://eu-price-tracker-lge.web.app",
+  "ata-guide": "https://lge-product-showcase-2026.web.app/docs/ata-guide/",
+  "gfk-monthly": "https://gfk-report-monthly-lge.web.app",
+  "ms-trend": "https://tv-ms-trend-dashboard.web.app",
+  "fx-monitor": "https://ac-fx-monitor-test.apps.hedej.lge.com/"
+};
+
+function getEffectiveUrl(dash) {
+  if (customUrls && customUrls[dash.id] !== undefined && customUrls[dash.id].trim() !== "") {
+    return customUrls[dash.id];
+  }
+  return dash.agentUrl || DEFAULT_AGENT_URLS[dash.id] || "";
 }
 
 // Application State
