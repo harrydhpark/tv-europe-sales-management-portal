@@ -4,8 +4,8 @@
 const AUTH_CONFIG = {
   // SHA-256 Hash of 'LGE135' (case-sensitive)
   ID_HASH: '4ed89d4c95cd896421176fe47e4c9ee9a0baad02dae39f57ce32eef58ec8e942',
-  // SHA-256 Hash of 'LGE246' (case-sensitive)
-  PW_HASH: '618db43b60c434d96fa46606dfd55e64a4ee7321f05b6dd846f5b5bea2e7cade',
+  // SHA-256 Hash of 'LGE777' (case-sensitive)
+  PW_HASH: '7e48a3df9992868561fed23f3f2137a2315a02981f23207a5af46b4374bbf5bb',
   SESSION_KEY: 'lge_portal_authenticated_user',
   TIMESTAMP_KEY: 'lge_portal_auth_timestamp',
   TIMEOUT_MS: 30 * 60 * 1000, // 30 minutes session timeout
