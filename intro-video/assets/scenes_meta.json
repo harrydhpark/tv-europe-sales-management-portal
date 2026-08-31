@@ -1,0 +1,57 @@
+[
+  {
+    "id": "scene_1",
+    "title": "포털 도입 및 통합 목적",
+    "target_duration": 10.0,
+    "script": "유럽 15개 법인의 매출, 손익, 가격, 시장 데이터가 하나로 연결됩니다. 유럽 TV 영업의 실시간 의사결정 허브, TV Europe Sales Management Portal입니다.",
+    "subtitle": "유럽 15개 법인의 영업·손익·가격 데이터를 하나로! 실시간 통합 관리 포털",
+    "voice_rate": "+6%",
+    "voice_pitch": "+0Hz",
+    "audio_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_1.mp3",
+    "srt_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_1.srt"
+  },
+  {
+    "id": "scene_2",
+    "title": "4대 핵심 카테고리 & 15개 에이전트 구조",
+    "target_duration": 15.0,
+    "script": "매출과 손익 관리부터 제품 사양, 가격 가이드라인, 시장 트렌드까지—4개 핵심 카테고리, 15개의 특화된 전문 에이전트가 완벽한 업무 네비게이션을 제공합니다.",
+    "subtitle": "4대 핵심 영역 · 15개 전문 에이전트 원클릭 연동 (매출/손익 · 제품 · 가격 · 시장)",
+    "voice_rate": "+6%",
+    "voice_pitch": "+0Hz",
+    "audio_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_2.mp3",
+    "srt_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_2.srt"
+  },
+  {
+    "id": "scene_3a",
+    "title": "KPI Sheet 심층 시연",
+    "target_duration": 10.0,
+    "script": "KPI Sheet를 통해 권역별 매출 실적과 출하 진척률, 유통 재고 주수(WOS)를 한눈에 파악하여 공급 리스크를 선제적으로 방어합니다.",
+    "subtitle": "[KPI Sheet] 권역/법인별 매출 실적 및 주차별 재고(WOS) 실시간 모니터링",
+    "voice_rate": "+5%",
+    "voice_pitch": "+0Hz",
+    "audio_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_3a.mp3",
+    "srt_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_3a.srt"
+  },
+  {
+    "id": "scene_3b",
+    "title": "Price Tracker 심층 시연",
+    "target_duration": 10.0,
+    "script": "유럽 12개국의 실시간 유통가를 추적하는 Price Tracker로 경쟁사 대비 가격 갭을 정밀 분석하고 최적의 가격 전략을 수립합니다.",
+    "subtitle": "[Price Tracker] 유럽 12개국 유통 최저가 추적 & 실시간 Price Gap 분석",
+    "voice_rate": "+5%",
+    "voice_pitch": "+0Hz",
+    "audio_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_3b.mp3",
+    "srt_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_3b.srt"
+  },
+  {
+    "id": "scene_4",
+    "title": "향후 AX 고도화 비전 및 클로징",
+    "target_duration": 15.0,
+    "script": "이제 단순 조회를 넘어, AI 예측과 지능형 분석으로 더 스마트해집니다. 유럽 TV 영업의 데이터 혁신, TV Europe Sales Management Portal과 함께하십시오.",
+    "subtitle": "데이터 기반 실시간 의사결정의 완성 · AI 기반 예측 어시스턴트로의 진화",
+    "voice_rate": "+5%",
+    "voice_pitch": "+0Hz",
+    "audio_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_4.mp3",
+    "srt_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_4.srt"
+  }
+]

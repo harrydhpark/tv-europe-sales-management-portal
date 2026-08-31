@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV Europe Sales Management Portal - 1분 소개 영상 뷰어</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B1120;
+      --card-bg: #0F172A;
+      --sidebar-bg: #0F172A;
+      --accent: #0D9488;
+      --accent-hover: #14B8A6;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: #1E293B;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #0D9488, #3B82F6);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: white;
+    }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .brand-badge {
+      background: #064E3B;
+      color: #34D399;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-left: 8px;
+    }
+    .main-container {
+      flex: 1;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 28px;
+    }
+    .video-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .video-wrapper {
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      border: 1px solid var(--border);
+      position: relative;
+      aspect-ratio: 16/9;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .scene-controls {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+    .scene-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+    .scene-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      background: #1E293B;
+    }
+    .scene-btn.active {
+      border-color: var(--accent);
+      background: rgba(13, 148, 136, 0.15);
+      color: #2DD4BF;
+    }
+    .scene-btn .time {
+      font-size: 11px;
+      font-weight: 700;
+      color: #38BDF8;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .scene-btn .name {
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .panel-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #F1F5F9;
+    }
+    .script-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-height: 480px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+    .script-item {
+      padding: 12px;
+      background: #1E293B;
+      border-radius: 10px;
+      border-left: 3px solid #64748B;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .script-item:hover {
+      background: #273549;
+    }
+    .script-item.active {
+      border-left-color: var(--accent);
+      background: rgba(13, 148, 136, 0.12);
+    }
+    .script-item .badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #38BDF8;
+      margin-bottom: 4px;
+      display: inline-block;
+    }
+    .script-item .text {
+      font-size: 13px;
+      color: #CBD5E1;
+      line-height: 1.4;
+    }
+    .asset-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .asset-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: #1E293B;
+      color: #E2E8F0;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .asset-btn:hover {
+      background: #334155;
+      color: #2DD4BF;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="brand-icon"><i class="ri-video-line"></i></div>
+      <div class="brand-title">TV Europe Sales Management Portal</div>
+      <span class="brand-badge">1-MINUTE INTRO VIDEO</span>
+    </div>
+    <div style="font-size: 13px; color: var(--text-muted);">
+      <i class="ri-time-line"></i> 60s Full HD (1920x1080) · Edge-TTS InJoon
+    </div>
+  </header>
+
+  <main class="main-container">
+    <div class="video-section">
+      <div class="video-wrapper">
+        <video id="portalVideo" controls preload="auto" poster="intro-video/assets/images/slide_1_intro.png">
+          <source src="intro-video/TV_Europe_Sales_Portal_Intro_60s.mp4" type="video/mp4">
+          브라우저가 HTML5 비디오 태그를 지원하지 않습니다.
+        </video>
+      </div>
+
+      <!-- Quick Scene Navigation -->
+      <div class="scene-controls">
+        <button class="scene-btn active" onclick="seekVideo(0)">
+          <span class="time">00:00 ~ 00:10</span>
+          <span class="name">Scene 1. 도입 및 목적</span>
+        </button>
+        <button class="scene-btn" onclick="seekVideo(10)">
+          <span class="time">00:10 ~ 00:25</span>
+          <span class="name">Scene 2. 4대 영역 & 15개 허브</span>
+        </button>
+        <button class="scene-btn" onclick="seekVideo(25)">
+          <span class="time">00:25 ~ 00:35</span>
+          <span class="name">Scene 3A. KPI Sheet</span>
+        </button>
+        <button class="scene-btn" onclick="seekVideo(35)">
+          <span class="time">00:35 ~ 00:45</span>
+          <span class="name">Scene 3B. Price Tracker</span>
+        </button>
+        <button class="scene-btn" onclick="seekVideo(45)">
+          <span class="time">00:45 ~ 01:00</span>
+          <span class="name">Scene 4. AI 비전 & 엔딩</span>
+        </button>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <div class="panel">
+        <div class="panel-title"><i class="ri-chat-voice-line"></i> 씬별 내레이션 스크립트</div>
+        <div class="script-list">
+          <div class="script-item active" id="script1" onclick="seekVideo(0)">
+            <span class="badge">Scene 1 (10s) 도입</span>
+            <div class="text">"유럽 15개 법인의 매출, 손익, 가격, 시장 데이터가 하나로 연결됩니다. 유럽 TV 영업의 실시간 의사결정 허브, TV Europe Sales Management Portal입니다."</div>
+          </div>
+          <div class="script-item" id="script2" onclick="seekVideo(10)">
+            <span class="badge">Scene 2 (15s) 구조 & 카테고리</span>
+            <div class="text">"매출과 손익 관리부터 제품 사양, 가격 가이드라인, 시장 트렌드까지—4개 핵심 카테고리, 15개의 특화된 전문 에이전트가 완벽한 업무 네비게이션을 제공합니다."</div>
+          </div>
+          <div class="script-item" id="script3a" onclick="seekVideo(25)">
+            <span class="badge">Scene 3A (10s) KPI Sheet</span>
+            <div class="text">"KPI Sheet를 통해 권역별 매출 실적과 출하 진척률, 유통 재고 주수(WOS)를 한눈에 파악하여 공급 리스크를 선제적으로 방어합니다."</div>
+          </div>
+          <div class="script-item" id="script3b" onclick="seekVideo(35)">
+            <span class="badge">Scene 3B (10s) Price Tracker</span>
+            <div class="text">"유럽 12개국의 실시간 유통가를 추적하는 Price Tracker로 경쟁사 대비 가격 갭을 정밀 분석하고 최적의 가격 전략을 수립합니다."</div>
+          </div>
+          <div class="script-item" id="script4" onclick="seekVideo(45)">
+            <span class="badge">Scene 4 (15s) 비전 & 클로징</span>
+            <div class="text">"이제 단순 조회를 넘어, AI 예측과 지능형 분석으로 더 스마트해집니다. 유럽 TV 영업의 데이터 혁신, TV Europe Sales Management Portal과 함께하십시오."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title"><i class="ri-download-cloud-line"></i> 생성 에셋 다운로드 & 리소스</div>
+        <div class="asset-links">
+          <a class="asset-btn" href="intro-video/TV_Europe_Sales_Portal_Intro_60s.mp4" download>
+            <span><i class="ri-film-line"></i> 최종 영상 (MP4)</span>
+            <span style="font-size: 11px; color: #64748B;">28 MB</span>
+          </a>
+          <a class="asset-btn" href="intro-video/assets/subtitles/portal_intro_subtitles_ko.srt" download>
+            <span><i class="ri-subtitles-line"></i> 한글 자막 (SRT)</span>
+            <span style="font-size: 11px; color: #64748B;">.srt</span>
+          </a>
+          <a class="asset-btn" href="intro-video/assets/audio/master_soundtrack_60s.wav" download>
+            <span><i class="ri-volume-up-line"></i> 마스터 사운드트랙 (WAV)</span>
+            <span style="font-size: 11px; color: #64748B;">44.1kHz</span>
+          </a>
+        </div>
+      </div>
+
+    </aside>
+  </main>
+
+  <script>
+    const video = document.getElementById('portalVideo');
+    const sceneBtns = document.querySelectorAll('.scene-btn');
+    const scriptItems = document.querySelectorAll('.script-item');
+
+    function seekVideo(seconds) {
+      video.currentTime = seconds;
+      video.play();
+    }
+
+    video.addEventListener('timeupdate', () => {
+      const cur = video.currentTime;
+      let activeIdx = 0;
+      if (cur >= 45) activeIdx = 4;
+      else if (cur >= 35) activeIdx = 3;
+      else if (cur >= 25) activeIdx = 2;
+      else if (cur >= 10) activeIdx = 1;
+      else activeIdx = 0;
+
+      sceneBtns.forEach((btn, idx) => {
+        btn.classList.toggle('active', idx === activeIdx);
+      });
+      scriptItems.forEach((item, idx) => {
+        item.classList.toggle('active', idx === activeIdx);
+      });
+    });
+  </script>
+</body>
+</html>
