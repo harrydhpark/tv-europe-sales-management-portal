@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TV Europe Sales Management Portal - 소개 영상 뷰어 (9개 씬 개편판)</title>
+  <title>TV Europe Sales Management Portal - 소개 영상 뷰어</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
     .header {
       background: var(--card-bg);
       border-bottom: 1px solid var(--border);
-      padding: 16px 32px;
+      padding: 14px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -43,36 +43,55 @@
       gap: 12px;
     }
     .brand-icon {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       background: linear-gradient(135deg, #0D9488, #3B82F6);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: 20px;
       color: white;
     }
     .brand-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       letter-spacing: -0.01em;
     }
-    .brand-badge {
-      background: #064E3B;
-      color: #34D399;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 6px;
-      margin-left: 8px;
+    .version-switch {
+      display: flex;
+      align-items: center;
+      background: #1E293B;
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      gap: 4px;
+    }
+    .ver-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ver-btn.active {
+      background: var(--accent);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(13, 148, 136, 0.4);
     }
     .main-container {
       flex: 1;
       max-width: 1560px;
       width: 100%;
       margin: 0 auto;
-      padding: 28px;
+      padding: 24px 32px;
       display: grid;
       grid-template-columns: 1fr 420px;
       gap: 28px;
@@ -80,7 +99,7 @@
     .video-section {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
     }
     .video-wrapper {
       background: #000;
@@ -147,9 +166,9 @@
       padding: 20px;
     }
     .panel-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -159,7 +178,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      max-height: 520px;
+      max-height: 510px;
       overflow-y: auto;
       padding-right: 6px;
     }
@@ -220,12 +239,22 @@
 <body>
   <header class="header">
     <div class="brand">
-      <div class="brand-icon"><i class="ri-video-line"></i></div>
+      <div class="brand-icon"><i class="ri-movie-2-line"></i></div>
       <div class="brand-title">TV Europe Sales Management Portal</div>
-      <span class="brand-badge">9-SCENE FULL OVERVIEW</span>
     </div>
+
+    <!-- Version Selector Toggle -->
+    <div class="version-switch">
+      <button class="ver-btn active" id="btnV2" onclick="switchVersion('v2')">
+        <i class="ri-sparkling-fill"></i> v2 풀 모션판 (New)
+      </button>
+      <button class="ver-btn" id="btnV1" onclick="switchVersion('v1')">
+        <i class="ri-archive-line"></i> v1 클래식판 (Archive)
+      </button>
+    </div>
+
     <div style="font-size: 13px; color: var(--text-muted);">
-      <i class="ri-time-line"></i> 2분 19초 (139s) · 1080p Full HD · AI Voice InJoon
+      <i class="ri-time-line"></i> 2분 19초 · 1080p Full HD · AI Voice InJoon
     </div>
   </header>
 
@@ -233,7 +262,7 @@
     <div class="video-section">
       <div class="video-wrapper">
         <video id="portalVideo" controls preload="auto" poster="템플릿/01. iNTRODUCTION.png">
-          <source src="TV_Europe_Sales_Portal_Intro_60s.mp4" type="video/mp4">
+          <source id="videoSource" src="TV_Europe_Sales_Portal_Intro_v2_enhanced.mp4" type="video/mp4">
           브라우저가 HTML5 비디오 태그를 지원하지 않습니다.
         </video>
       </div>
@@ -325,16 +354,20 @@
       <div class="panel">
         <div class="panel-title"><i class="ri-download-cloud-line"></i> 에셋 다운로드 & 리소스</div>
         <div class="asset-links">
-          <a class="asset-btn" href="TV_Europe_Sales_Portal_Intro_60s.mp4" download>
-            <span><i class="ri-film-line"></i> 완성 영상 (MP4)</span>
-            <span style="font-size: 11px; color: #64748B;">1080p Full HD</span>
+          <a class="asset-btn" id="dlVideo" href="TV_Europe_Sales_Portal_Intro_v2_enhanced.mp4" download>
+            <span><i class="ri-sparkling-fill" style="color:#2DD4BF;"></i> v2 풀 모션 완성 영상 (MP4)</span>
+            <span style="font-size: 11px; color: #64748B;">1080p</span>
+          </a>
+          <a class="asset-btn" href="assets/archive/TV_Europe_Sales_Portal_Intro_v1_classic.mp4" download>
+            <span><i class="ri-archive-line"></i> v1 클래식 보관 영상 (MP4)</span>
+            <span style="font-size: 11px; color: #64748B;">보관본</span>
           </a>
           <a class="asset-btn" href="assets/subtitles/portal_intro_subtitles_ko.srt" download>
-            <span><i class="ri-subtitles-line"></i> 9씬 한글 자막 (SRT)</span>
-            <span style="font-size: 11px; color: #64748B;">.srt</span>
+            <span><i class="ri-subtitles-line"></i> 9씬 한글 자막 파일 (.srt)</span>
+            <span style="font-size: 11px; color: #64748B;">SRT</span>
           </a>
           <a class="asset-btn" href="assets/audio/master_soundtrack_revised.wav" download>
-            <span><i class="ri-volume-up-line"></i> 마스터 사운드트랙 (WAV)</span>
+            <span><i class="ri-volume-up-line"></i> 마스터 사운드트랙 (.wav)</span>
             <span style="font-size: 11px; color: #64748B;">44.1kHz</span>
           </a>
         </div>
@@ -344,10 +377,34 @@
 
   <script>
     const video = document.getElementById('portalVideo');
+    const videoSource = document.getElementById('videoSource');
     const sceneBtns = document.querySelectorAll('.scene-btn');
     const scriptItems = document.querySelectorAll('.script-item');
+    const btnV2 = document.getElementById('btnV2');
+    const btnV1 = document.getElementById('btnV1');
 
     const sceneTimes = [0.5, 31.1, 45.1, 54.1, 65.1, 75.5, 96.6, 109.4, 122.3];
+
+    function switchVersion(ver) {
+      const curTime = video.currentTime;
+      const isPaused = video.paused;
+      
+      if (ver === 'v2') {
+        btnV2.classList.add('active');
+        btnV1.classList.remove('active');
+        videoSource.src = 'TV_Europe_Sales_Portal_Intro_v2_enhanced.mp4';
+      } else {
+        btnV1.classList.add('active');
+        btnV2.classList.remove('active');
+        videoSource.src = 'assets/archive/TV_Europe_Sales_Portal_Intro_v1_classic.mp4';
+      }
+      
+      video.load();
+      video.currentTime = curTime;
+      if (!isPaused) {
+        video.play();
+      }
+    }
 
     function seekVideo(seconds) {
       video.currentTime = seconds;
