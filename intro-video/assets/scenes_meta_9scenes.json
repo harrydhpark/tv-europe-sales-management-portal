@@ -1,5 +1,5 @@
 {
-  "total_duration": 138.88000000000002,
+  "total_duration": 139.26000000000002,
   "scenes": [
     {
       "id": "scene_1",
@@ -89,8 +89,8 @@
     {
       "id": "scene_6",
       "title": "PRICE TRACKER 심층 시연",
-      "script": "PRICE TRACKER 에이전트를 통해 유럽 12개 주요 유통의 2천개 이상의 자사, 경쟁사 제품 가격을 실시간 모니터링하고 가격 갭을 정밀 분석함으로써 최적의 가격 전략을 수립할 수 있습니다. 또한 국가 담당자의 가격 조사 및 정리 분석 시간을 획기적으로 절감하고 있습니다.",
-      "subtitle": "[Price Tracker] 유럽 12개국 2,000+개 제품 실시간 가격 추적 & Price Gap 정밀 분석",
+      "script": "프라이스 트래커 에이전트를 통해 유럽 12개 주요 유통의 2천개 이상의 자사, 경쟁사 제품 가격을 실시간 모니터링하고 가격 갭을 정밀 분석함으로써 빠른 판가 대응 의사결정을 지원합니다. 또한 국가 담당자의 가격 조사 및 정리 분석 시간을 획기적으로 절감하고 있습니다.",
+      "subtitle": "[Price Tracker] 유럽 12개국 2,000+개 제품 실시간 가격 추적 & 빠른 판가 대응 의사결정 지원",
       "tag": "06. PRICE TRACKER LIVE DEMO",
       "media_type": "video",
       "media_file": "06. PRICE TRACKER.mp4",
@@ -98,10 +98,10 @@
       "voice_pitch": "+0Hz",
       "audio_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_6.mp3",
       "srt_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_6.srt",
-      "audio_duration": 20.26,
+      "audio_duration": 20.95,
       "timeline_start": 75.52,
-      "timeline_end": 96.58,
-      "scene_duration": 21.060000000000002
+      "timeline_end": 97.27,
+      "scene_duration": 21.75
     },
     {
       "id": "scene_7",
@@ -116,15 +116,15 @@
       "audio_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_7.mp3",
       "srt_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_7.srt",
       "audio_duration": 12.05,
-      "timeline_start": 96.58,
-      "timeline_end": 109.43,
+      "timeline_start": 97.27,
+      "timeline_end": 110.12,
       "scene_duration": 12.850000000000001
     },
     {
       "id": "scene_8",
       "title": "KPI SHEET 심층 시연",
-      "script": "KPI SHEET 에이전트는 영업 주요 KPI 지표에 대한 대시보드 작업을 자동화하여 업무 부담을 줄이고, 법인과의 영업 의사결정을 위한 효율적인 커뮤니케이션에 사용되고 있습니다.",
-      "subtitle": "[KPI Sheet] 영업 핵심 KPI 대시보드 자동화 & 법인 소통 효율 극대화",
+      "script": "케이피아이 시트 에이전트는 영업 주요 케이피아이 지표에 대한 대시보드 작업을 자동화하여 업무 부담을 줄이고, 법인과의 영업 의사결정을 위한 효율적인 커뮤니케이션에 사용되고 있습니다.",
+      "subtitle": "[KPI Sheet] 영업 주요 KPI 지표 대시보드 자동화 & 법인 소통 효율 극대화",
       "tag": "08. KPI SHEET DASHBOARD",
       "media_type": "multi_image",
       "media_files": [
@@ -136,14 +136,14 @@
       "audio_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_8.mp3",
       "srt_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_8.srt",
       "audio_duration": 12.07,
-      "timeline_start": 109.43,
-      "timeline_end": 122.30000000000001,
+      "timeline_start": 110.12,
+      "timeline_end": 122.99000000000001,
       "scene_duration": 12.870000000000001
     },
     {
       "id": "scene_9",
       "title": "AX 비전 및 클로징",
-      "script": "이제 단순 조회를 넘어, AI 예측과 지능형 분석으로 영업활동이 더 스마트해집니다. 유럽 TV 영업의 AX 전환의 도구로서 TV 유럽 세일즈 마케팅 포탈을 적극 활용하겠습니다.",
+      "script": "이제 단순 조회를 넘어, 에이아이 예측과 지능형 분석으로 영업활동이 더 스마트해집니다. 유럽 TV 영업의 에이엑스 전환의 도구로서 TV 유럽 세일즈 마케팅 포탈을 적극 활용하겠습니다.",
       "subtitle": "데이터 기반 실시간 의사결정 완성 · 유럽 TV 영업 AX 혁신의 핵심 허브",
       "tag": "09. AX VISION & CLOSING",
       "media_type": "image",
@@ -152,10 +152,10 @@
       "voice_pitch": "+0Hz",
       "audio_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_9.mp3",
       "srt_path": "D:\\TV 유럽영업\\15. AX Task\\2026 AX 실행과제\\11. 세일즈 포탈 소개 영상\\assets\\audio\\scene_9.srt",
-      "audio_duration": 14.78,
-      "timeline_start": 122.30000000000001,
-      "timeline_end": 137.88000000000002,
-      "scene_duration": 15.58
+      "audio_duration": 14.47,
+      "timeline_start": 122.99000000000001,
+      "timeline_end": 138.26000000000002,
+      "scene_duration": 15.270000000000001
     }
   ]
 }
