@@ -1230,49 +1230,11 @@ function setupEventListeners() {
   saveUrlsBtn.addEventListener("click", saveCustomUrls);
   resetUrlsBtn.addEventListener("click", resetCustomUrls);
 
-  // Intro Video Modal Events
-  const introVideoBtn = document.getElementById("introVideoBtn");
-  const introVideoModalOverlay = document.getElementById("introVideoModalOverlay");
-  const closeIntroVideoModalBtn = document.getElementById("closeIntroVideoModalBtn");
-  const confirmCloseVideoModalBtn = document.getElementById("confirmCloseVideoModalBtn");
-  const modalIntroVideo = document.getElementById("modalIntroVideo");
-
-  function openIntroVideoModal() {
-    if (introVideoModalOverlay) {
-      introVideoModalOverlay.style.display = "flex";
-      introVideoModalOverlay.classList.add("active");
-      if (modalIntroVideo) {
-        modalIntroVideo.currentTime = 0;
-        modalIntroVideo.play().catch(() => {});
-      }
-    }
-  }
-
-  function closeIntroVideoModal() {
-    if (introVideoModalOverlay) {
-      introVideoModalOverlay.style.display = "none";
-      introVideoModalOverlay.classList.remove("active");
-      if (modalIntroVideo) {
-        modalIntroVideo.pause();
-      }
-    }
-  }
-
-  if (introVideoBtn) introVideoBtn.addEventListener("click", openIntroVideoModal);
-  if (closeIntroVideoModalBtn) closeIntroVideoModalBtn.addEventListener("click", closeIntroVideoModal);
-  if (confirmCloseVideoModalBtn) confirmCloseVideoModalBtn.addEventListener("click", closeIntroVideoModal);
-  if (introVideoModalOverlay) {
-    introVideoModalOverlay.addEventListener("click", e => {
-      if (e.target === introVideoModalOverlay) closeIntroVideoModal();
-    });
-  }
-
   // ESC key to close Viewer or Modal
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
       if (agentViewerOverlay.classList.contains("active")) closeDashboardViewer();
       else if (configModalOverlay.classList.contains("active")) closeConfigModal();
-      else if (introVideoModalOverlay && introVideoModalOverlay.classList.contains("active")) closeIntroVideoModal();
     }
   });
 }

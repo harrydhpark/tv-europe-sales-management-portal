@@ -220,10 +220,6 @@
             <p class="section-desc" id="currentCategoryDesc">해외영업 실적, 제품 로드맵, 가격 가이드 및 GfK 시장 데이터를 통합 조회할 수 있는 에이전트 포털입니다.</p>
           </div>
           <div class="view-controls">
-            <button class="icon-btn intro-video-btn" id="introVideoBtn" title="포털 1분 소개 영상 시청" style="background: rgba(13, 148, 136, 0.15); color: #2DD4BF; border: 1px solid #0D9488;">
-              <i class="ri-video-line"></i>
-              <span>1분 소개 영상</span>
-            </button>
             <button class="icon-btn" id="configUrlBtn" title="에이전트 URL 설정">
               <i class="ri-links-line"></i>
               <span>에이전트 URL 관리</span>
@@ -296,36 +292,6 @@
       <!-- Embedded Mock Interactive Dashboard Container (when no external URL is set) -->
       <div id="mockDashboardContainer" class="mock-dashboard-container">
         <!-- Dynamic Mock Dashboard HTML -->
-      </div>
-    </div>
-  </div>
-
-  <!-- 1-Minute Intro Video Modal -->
-  <div class="modal-overlay" id="introVideoModalOverlay" style="display: none;">
-    <div class="modal-card" style="max-width: 960px; width: 90%; background: #0F172A; border: 1px solid #334155; border-radius: 16px; overflow: hidden; padding: 0;">
-      <div class="modal-header" style="background: #1E293B; padding: 16px 24px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center;">
-        <h3 style="color: #F8FAFC; font-size: 18px; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 8px;">
-          <i class="ri-video-line" style="color: #2DD4BF;"></i>
-          <span>TV Europe Sales Management Portal 1분 소개 영상</span>
-        </h3>
-        <button class="modal-close" id="closeIntroVideoModalBtn" style="background: transparent; border: none; color: #94A3B8; font-size: 24px; cursor: pointer;"><i class="ri-close-line"></i></button>
-      </div>
-      <div class="modal-body" style="padding: 0; background: #000;">
-        <div style="position: relative; aspect-ratio: 16/9; width: 100%;">
-          <video id="modalIntroVideo" controls style="width: 100%; height: 100%; display: block;" poster="intro-video/assets/images/slide_1_intro.png">
-            <source src="intro-video/TV_Europe_Sales_Portal_Intro_60s.mp4" type="video/mp4">
-            브라우저가 HTML5 비디오 태그를 지원하지 않습니다.
-          </video>
-        </div>
-      </div>
-      <div class="modal-footer" style="padding: 14px 24px; background: #0F172A; border-top: 1px solid #1E293B; display: flex; justify-content: space-between; align-items: center;">
-        <span style="font-size: 13px; color: #94A3B8;"><i class="ri-time-line"></i> 60초 Full HD (1920x1080) · Edge-TTS InJoon AI Voice</span>
-        <div style="display: flex; gap: 10px;">
-          <a href="intro-video.html" target="_blank" class="secondary-btn" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 8px; font-size: 13px; background: #1E293B; color: #F1F5F9; text-decoration: none; border: 1px solid #334155;">
-            <i class="ri-external-link-line"></i> 전체화면 뷰어 열기
-          </a>
-          <button class="primary-btn" id="confirmCloseVideoModalBtn" style="padding: 8px 18px; border-radius: 8px; font-size: 13px; background: #0D9488; color: #FFFFFF; border: none; cursor: pointer;">닫기</button>
-        </div>
       </div>
     </div>
   </div>
