@@ -410,7 +410,7 @@ const DASHBOARDS = [
     title: "FX-Monitor",
     desc: "글로벌 주요 통화(EUR, USD, GBP, PLN 등) 환율 변동 추이 및 실적 리스크 분석",
     updated: "Live Auto",
-    agentUrl: "https://ac-fx-monitor-test.apps.hedej.lge.com/",
+    agentUrl: "https://fx-tracker-4f44c.web.app",
     icon: "ri-money-dollar-circle-line",
     previewSvg: `
       <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -466,7 +466,7 @@ const DEFAULT_AGENT_URLS = {
   "ata-guide": "https://lge-product-showcase-2026.web.app/docs/ata-guide/",
   "gfk-monthly": "https://gfk-report-monthly-lge.web.app",
   "ms-trend": "https://tv-ms-trend-dashboard.web.app",
-  "fx-monitor": "https://ac-fx-monitor-test.apps.hedej.lge.com/"
+  "fx-monitor": "https://fx-tracker-4f44c.web.app"
 };
 
 function getEffectiveUrl(dash) {
