@@ -471,9 +471,14 @@ const DEFAULT_AGENT_URLS = {
 
 function getEffectiveUrl(dash) {
   if (customUrls && customUrls[dash.id] !== undefined && customUrls[dash.id].trim() !== "") {
-    return customUrls[dash.id];
+    if (dash.id === "fx-monitor" && customUrls[dash.id].includes("hedej.lge.com")) {
+      customUrls[dash.id] = DEFAULT_AGENT_URLS["fx-monitor"];
+      saveStoredCustomUrls(customUrls);
+    } else {
+      return customUrls[dash.id];
+    }
   }
-  return dash.agentUrl || DEFAULT_AGENT_URLS[dash.id] || "";
+  return DEFAULT_AGENT_URLS[dash.id] || dash.agentUrl || "";
 }
 
 // Application State
