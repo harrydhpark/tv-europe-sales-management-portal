@@ -352,6 +352,29 @@ const DASHBOARDS = [
       </svg>
     `
   },
+  {
+    id: "price-elasticity",
+    category: "가격 관리",
+    categoryKey: "pricing",
+    period: "monthly",
+    title: "가격 탄력성 시뮬레이터",
+    desc: "18개월 유럽 20개국 패널 회귀분석 기반 2027 Q1 가격 인상률 및 4대 경쟁 대응 시나리오 시뮬레이션",
+    updated: "2026-09-07",
+    agentUrl: "https://lge-price-elasticity-2026.web.app",
+    icon: "ri-line-chart-line",
+    previewSvg: `
+      <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="110" fill="#F8FAFC"/>
+        <path d="M 30 85 C 70 82, 110 65, 150 45 C 190 28, 230 22, 270 20" stroke="#A50034" stroke-width="3" stroke-linecap="round"/>
+        <path d="M 30 75 C 70 70, 110 55, 150 50 C 190 45, 230 40, 270 38" stroke="#0D9488" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
+        <circle cx="150" cy="45" r="4" fill="#A50034"/>
+        <rect x="25" y="15" width="100" height="22" rx="3" fill="#FFE4E6"/>
+        <text x="32" y="30" fill="#BE123C" font-family="Inter, sans-serif" font-size="10" font-weight="700">OLED |β₁|=0.26</text>
+        <rect x="135" y="15" width="115" height="22" rx="3" fill="#E0F2FE"/>
+        <text x="142" y="30" fill="#0369A1" font-family="Inter, sans-serif" font-size="10" font-weight="700">2027 Q1 Forecast</text>
+      </svg>
+    `
+  },
 
   // 4. 시장 정보 (3 Cards)
   {
@@ -360,8 +383,8 @@ const DASHBOARDS = [
     categoryKey: "market",
     period: "monthly",
     title: "GfK Monthly Report",
-    desc: "유럽 주요 12개국 GfK 월간 시장 수량/금액 수집 데이터 보고서 및 세그먼트 분석",
-    updated: "2026-07-15",
+    desc: "유럽 15개국 GfK 월간 시장 실판매 데이터 보고서 및 세그먼트 심층 분석 (최신 8월 반영)",
+    updated: "2026-09-09",
     agentUrl: "https://gfk-report-monthly-lge.web.app",
     icon: "ri-pie-chart-2-line",
     previewSvg: `
@@ -463,6 +486,7 @@ const DEFAULT_AGENT_URLS = {
   "spec-sheet": "https://lge-product-showcase-2026.web.app",
   "tv-profile": "https://lge-product-showcase-2026.web.app",
   "price-tracker": "https://eu-price-tracker-lge.web.app",
+  "price-elasticity": "https://lge-price-elasticity-2026.web.app",
   "ata-guide": "https://lge-product-showcase-2026.web.app/docs/ata-guide/",
   "gfk-monthly": "https://gfk-report-monthly-lge.web.app",
   "ms-trend": "https://tv-ms-trend-dashboard.web.app",
