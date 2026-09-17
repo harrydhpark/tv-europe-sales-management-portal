@@ -128,22 +128,39 @@
       <div style="display: flex; align-items: center; gap: 16px;">
         <a href="${portalUrl}" class="portal-back-btn" id="btn-portal-back-action">
           <i class="ri-arrow-left-line" style="font-size: 16px;"></i>
-          <span>포탈로 돌아가기</span>
+          <span id="btn-portal-back-text">포탈로 돌아가기</span>
         </a>
       </div>
 
       <div class="portal-dash-title">
         <span class="portal-badge">STANDALONE VIEW</span>
-        <span>${pageTitle}</span>
+        <span id="portal-dash-title-text">${pageTitle}</span>
       </div>
     `;
 
     // Add back navigation logic
     const backBtn = topBar.querySelector('#btn-portal-back-action');
+    const backText = topBar.querySelector('#btn-portal-back-text');
     backBtn.addEventListener('click', function (e) {
       if (window.history.length > 1 && document.referrer.includes('Portal')) {
         e.preventDefault();
         window.history.back();
+      }
+    });
+
+    function updateTopBarLang(lang) {
+      if (backText) {
+        backText.textContent = lang === 'en' ? 'Return to Portal' : '포탈로 돌아가기';
+      }
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialLang = urlParams.get('lang') || localStorage.getItem('portal_lang') || 'ko';
+    updateTopBarLang(initialLang);
+
+    window.addEventListener('dashboardLanguageChanged', function (e) {
+      if (e.detail && e.detail.lang) {
+        updateTopBarLang(e.detail.lang);
       }
     });
 
