@@ -192,8 +192,8 @@ const DASHBOARDS = [
     categoryKey: "product",
     period: "monthly",
     title: "2025년 거래선 PRM 상담자료",
-    desc: "유럽 거래선 상담 2025 실적 리뷰(OLED M/S 51%), 2026 전략 로드맵(Wallpaper Reborn, Hyper Radiant) 및 AI 어시스턴트",
-    updated: "2026-07-24",
+    desc: "유럽 거래선 상담 2025 실적 리뷰(OLED M/S 51%), 2026 전략 로드맵 및 영문 발표 스크립트(TTS) 설명창",
+    updated: "2026-09-30",
     agentUrl: "https://lge-product-showcase-2026.web.app/docs/2025-prm-consulting/",
     icon: "ri-slideshow-line",
     previewSvg: `
@@ -213,6 +213,36 @@ const DASHBOARDS = [
         <text x="165" y="63" fill="#0D9488" font-family="Inter, sans-serif" font-size="10" font-weight="700">DUAL SLIDESHOW</text>
         <rect x="155" y="76" width="120" height="20" rx="4" fill="#E2E8F0"/>
         <text x="165" y="90" fill="#475569" font-family="Inter, sans-serif" font-size="9" font-weight="600">AI SPEC CHATBOT</text>
+      </svg>
+    `
+  },
+  {
+    id: "partner-growth-2027",
+    category: "제품 정보",
+    categoryKey: "product",
+    period: "monthly",
+    title: "2027 파트너 성장 전략 (PRM)",
+    desc: "2027 LG TV & Partner Growth Strategy: Shifting Purchase Journey, AI TV (Yeni), OLED evo 및 Micro RGB evo 모션 비디오 슬라이드 & 영문 발표 가이드",
+    updated: "2026-10-01",
+    agentUrl: "https://lge-product-showcase-2026.web.app/docs/2027-partner-growth-strategy/",
+    icon: "ri-movie-line",
+    previewSvg: `
+      <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="110" fill="#090D16"/>
+        <rect x="20" y="14" width="130" height="74" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>
+        <rect x="25" y="19" width="120" height="64" rx="4" fill="#1E293B"/>
+        <text x="32" y="38" fill="#F8FAFC" font-family="IBM Plex Sans, sans-serif" font-size="9" font-weight="700">2027 STRATEGY</text>
+        <text x="32" y="52" fill="#2DD4BF" font-family="Inter, sans-serif" font-size="8" font-weight="700">MOTION ANIMATION</text>
+        <text x="32" y="66" fill="#38BDF8" font-family="Inter, sans-serif" font-size="7">Yeni AI • Micro RGB</text>
+        <circle cx="85" cy="51" r="14" fill="rgba(13,148,136,0.3)" stroke="#2DD4BF" stroke-width="1.5"/>
+        <polygon points="82,45 92,51 82,57" fill="#2DD4BF"/>
+        <!-- Right Info Badges -->
+        <rect x="165" y="18" width="120" height="22" rx="4" fill="#0F172A" stroke="#334155"/>
+        <text x="175" y="33" fill="#2DD4BF" font-family="Inter, sans-serif" font-size="9" font-weight="700">76 SLIDES (54 MOTION)</text>
+        <rect x="165" y="46" width="120" height="22" rx="4" fill="rgba(13,148,136,0.15)" stroke="#0D9488"/>
+        <text x="175" y="61" fill="#0D9488" font-family="Inter, sans-serif" font-size="9" font-weight="700">ENGLISH SPEECH TTS</text>
+        <rect x="165" y="74" width="120" height="20" rx="4" fill="#1E293B" stroke="#334155"/>
+        <text x="175" y="88" fill="#94A3B8" font-family="Inter, sans-serif" font-size="8" font-weight="600">3-PART STRATEGY TOC</text>
       </svg>
     `
   },
@@ -710,10 +740,18 @@ const DASHBOARD_I18N = {
   "prm-consulting-2025": {
     title: { ko: "2025년 거래선 PRM 상담자료", en: "2025 Dealer PRM Materials" },
     desc: {
-      ko: "유럽 거래선 상담 2025 실적 리뷰(OLED M/S 51%), 2026 전략 로드맵(Wallpaper Reborn, Hyper Radiant) 및 AI 어시스턴트",
+      ko: "유럽 거래선 상담 2025 실적 리뷰(OLED M/S 51%), 2026 전략 로드맵 및 영문 발표 스크립트(TTS) 설명창",
       en: "European dealer consultation review (OLED M/S 51%), 2026 strategic roadmap & AI spec assistant"
     },
     updated: { ko: "2026-07-24", en: "2026-07-24" }
+  },
+  "partner-growth-2027": {
+    title: { ko: "2027 파트너 성장 전략 (PRM)", en: "2027 Partner Growth Strategy" },
+    desc: {
+      ko: "2027 LG TV & Partner Growth Strategy: Shifting Purchase Journey, AI TV (Yeni), OLED evo 및 Micro RGB evo 모션 비디오 슬라이드 & 영문 발표 가이드",
+      en: "2027 LG TV & Partner Growth Strategy: AI TV (Yeni), OLED evo, Micro RGB evo motion animation slides & English presenter speech engine"
+    },
+    updated: { ko: "2026-10-01", en: "2026-10-01" }
   },
   "tv-prm": {
     title: { ko: "TV PRM", en: "TV PRM" },
@@ -1008,6 +1046,7 @@ const DEFAULT_AGENT_URLS = {
   "pre-profitability": "https://lge-advance-profitability-2026.web.app",
   "profit-simulator": "https://lge-profitability-simulator-2026.web.app",
   "prm-consulting-2025": "https://lge-product-showcase-2026.web.app/docs/2025-prm-consulting/",
+  "partner-growth-2027": "https://lge-product-showcase-2026.web.app/docs/2027-partner-growth-strategy/",
   "tv-prm": "https://lge-product-showcase-2026.web.app",
   "spec-sheet": "https://lge-product-showcase-2026.web.app",
   "tv-profile": "https://lge-product-showcase-2026.web.app",
@@ -1406,15 +1445,22 @@ function toggleFavorite(id) {
 
 // Generate SSO Token for Sub-Dashboard Navigation
 async function generateSsoUrl(baseUrl) {
-  const authUser = sessionStorage.getItem(AUTH_CONFIG.SESSION_KEY) || 'LGE135';
-  const ts = Date.now();
-  const sig = await sha256(authUser + ":" + ts + ":" + AUTH_CONFIG.SECRET);
-  const delimiter = baseUrl.includes("?") ? "&" : "?";
-  let ssoUrl = `${baseUrl}${delimiter}auth_token=${sig}&auth_ts=${ts}&auth_user=${encodeURIComponent(authUser)}`;
-  if (currentPortalLang === 'en') {
-    ssoUrl += `&lang=en`;
+  try {
+    const authUser = (typeof AUTH_CONFIG !== 'undefined' && AUTH_CONFIG && AUTH_CONFIG.SESSION_KEY) 
+      ? (sessionStorage.getItem(AUTH_CONFIG.SESSION_KEY) || 'LGE135') 
+      : 'LGE135';
+    const ts = Date.now();
+    const secret = (typeof AUTH_CONFIG !== 'undefined' && AUTH_CONFIG && AUTH_CONFIG.SECRET) 
+      ? AUTH_CONFIG.SECRET 
+      : 'LGE_PORTAL_SEC_2026';
+    const sig = await sha256(authUser + ":" + ts + ":" + secret);
+    const delimiter = baseUrl.includes('?') ? '&' : '?';
+    const ssoUrl = `${baseUrl}${delimiter}auth_token=${sig}&auth_ts=${ts}&auth_user=${encodeURIComponent(authUser)}&lang=${currentPortalLang || 'ko'}`;
+    return ssoUrl;
+  } catch (err) {
+    console.warn("generateSsoUrl fallback:", err);
+    return baseUrl;
   }
-  return ssoUrl;
 }
 
 // Open Agent Viewer Overlay or External Site
@@ -1432,7 +1478,13 @@ async function openDashboardViewer(id) {
 
   if (configuredUrl && configuredUrl.trim() !== "") {
     // 외부 배포 URL이 등록되어 있는 경우 SSO 인증 토큰 생성 후 포털 내 포함(iframe) 뷰어로 열기
-    const ssoUrl = await generateSsoUrl(configuredUrl);
+    let ssoUrl = configuredUrl;
+    try {
+      ssoUrl = await generateSsoUrl(configuredUrl);
+    } catch (e) {
+      console.warn("generateSsoUrl failed, using baseUrl:", e);
+    }
+
     viewerExternalLink.href = ssoUrl;
     if (viewerStatusTag) {
       viewerStatusTag.innerHTML = `<i class="ri-robot-line"></i> ${tViewer.liveConnected}`;
