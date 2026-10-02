@@ -201,6 +201,13 @@ body.app-layout {
   color: #ffffff;
 }
 
+.axis-guide-nav-btn:hover {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.28) 0%, rgba(16, 185, 129, 0.22) 100%) !important;
+  border-color: rgba(13, 148, 136, 0.7) !important;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.2);
+  transform: translateY(-1px);
+}
+
 .menu-section-label {
   font-family: var(--font-mono);
   font-size: 10px;

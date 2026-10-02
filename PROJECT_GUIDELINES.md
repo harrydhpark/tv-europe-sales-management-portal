@@ -84,4 +84,18 @@
    - **스타일 외 수정 금지**: 시각적 스타일(컬러, 배지, 미세 여백) 조정만 허용됩니다.
    - **구조/설계 변경 시 필수 사전 승인**: 대시보드 레이아웃, 모듈 구조, UI 설계의 변경이 필요한 작업은 **반드시 사용자에게 사전 변경 안을 제시하고 허락을 받은 후 실행**해야 합니다.
 
+---
 
+## 7. AXIS 통합 시스템 공식 가이드 규격 (AXIS System Architecture)
+
+1. **통합 공식 브랜드 명칭**:
+   - **AXIS** (**A**gentic e**X**ecution & **I**ntegrated **S**ales System / 에이전트 기반 자율 실행 및 통합 영업 시스템)
+   - 상징성: 유럽 영업의 **'중심축(The Core Hub)'** + 올바른 의사결정 기준점인 **'전략적 좌표축(Strategic Coordinates)'**
+2. **시스템 구성 다이어그램 (3-Tier User-Centric Architecture)**:
+   - **Layer 1 (사용자 접점)**: 세일즈 포탈 (TV Europe Sales Management Portal) - 15대 대시보드 웹 뷰어
+   - **Layer 2 (지능형 두뇌)**: 마스터 AI 에이전트 & 15개 전문 서브 에이전트 (매출·손익 6종 / 제품·스펙 4종 / 가격 2종 / 시장 3종)
+   - **Layer 3 (데이터 기반)**: 4대 영업 정보 DB (매출·손익 DB, 제품·SPEC DB, 유통·가격 크롤링 DB, 시장·GfK 실판매 DB)
+3. **공식 가이드 문서**:
+   - 포털 내 파일: docs/AXIS_System_Architecture_Guide.html
+   - 포털 사이드바 네비게이션 및 메인 배너를 통해 전사 임직원/경영진에게 표준 제공
+   - 아카이브 보관: 99. Master Agent/Task/20261001_AXIS시스템구성_가이드개편/
