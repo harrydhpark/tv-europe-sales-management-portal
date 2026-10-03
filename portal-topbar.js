@@ -77,6 +77,23 @@
       portalUrl = 'https://tv-sales-portal-2026.web.app';
     }
 
+    // Determine Category
+    const catMeta = document.querySelector('meta[name="portal-category"]') || document.querySelector('meta[name="category"]');
+    let categoryName = catMeta ? catMeta.content : '';
+    if (!categoryName) {
+      if (pageTitle.includes('P&L') || pageTitle.includes('Sales') || pageTitle.includes('KPI') || pageTitle.includes('GDMI') || pageTitle.includes('수익성')) {
+        categoryName = '매출/손익 관리';
+      } else if (pageTitle.includes('PRM') || pageTitle.includes('Spec') || pageTitle.includes('제품')) {
+        categoryName = '제품 정보';
+      } else if (pageTitle.includes('Price') || pageTitle.includes('가격') || pageTitle.includes('탄력성')) {
+        categoryName = '가격 관리';
+      } else if (pageTitle.includes('MS') || pageTitle.includes('Trend') || pageTitle.includes('Market')) {
+        categoryName = '시장 정보';
+      } else {
+        categoryName = '대시보드';
+      }
+    }
+
     topBar.innerHTML = `
       <style>
         #portal-unified-topbar .portal-back-btn {
@@ -104,44 +121,58 @@
           transform: translateY(-1px);
         }
         #portal-unified-topbar .portal-dash-title {
-          font-family: 'IBM Plex Sans', 'Inter', sans-serif;
+          font-family: 'Inter', 'Noto Sans KR', sans-serif;
           font-size: 15px;
-          font-weight: 600;
-          color: #F8FAFC;
+          font-weight: 700;
+          color: #FFFFFF;
           display: flex;
           align-items: center;
           gap: 10px;
         }
         #portal-unified-topbar .portal-badge {
-          background-color: rgba(13, 148, 136, 0.2);
-          border: 1px solid rgba(13, 148, 136, 0.4);
-          color: #2DD4BF;
-          font-size: 11px;
+          background-color: rgba(255, 255, 255, 0.12);
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          color: #CBD5E1;
+          font-size: 11.5px;
           font-weight: 600;
-          padding: 2px 8px;
+          padding: 3px 8px;
           border-radius: 4px;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.02em;
         }
       </style>
       
-      <div style="display: flex; align-items: center; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
         <a href="${portalUrl}" class="portal-back-btn" id="btn-portal-back-action">
           <i class="ri-arrow-left-line" style="font-size: 16px;"></i>
           <span id="btn-portal-back-text">포탈로 돌아가기</span>
         </a>
+        <div class="portal-dash-title">
+          <span class="portal-badge" id="portal-badge-text">${categoryName}</span>
+          <span id="portal-dash-title-text">${pageTitle}</span>
+        </div>
       </div>
 
-      <div class="portal-dash-title">
-        <span class="portal-badge">STANDALONE VIEW</span>
-        <span id="portal-dash-title-text">${pageTitle}</span>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 9999px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: #34D399; font-size: 11px; font-weight: 600;">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+          <span>Live Connected</span>
+        </div>
       </div>
     `;
 
     // Add back navigation logic
     const backBtn = topBar.querySelector('#btn-portal-back-action');
     const backText = topBar.querySelector('#btn-portal-back-text');
+    const badgeText = topBar.querySelector('#portal-badge-text');
+
     backBtn.addEventListener('click', function (e) {
+      if (window.opener && !window.opener.closed) {
+        try {
+          window.opener.focus();
+          window.close();
+          return;
+        } catch (err) {}
+      }
       if (window.history.length > 1 && document.referrer.includes('Portal')) {
         e.preventDefault();
         window.history.back();
@@ -150,7 +181,21 @@
 
     function updateTopBarLang(lang) {
       if (backText) {
-        backText.textContent = lang === 'en' ? 'Return to Portal' : '포탈로 돌아가기';
+        backText.textContent = lang === 'en' ? 'Back to Portal' : '포탈로 돌아가기';
+      }
+      if (badgeText) {
+        if (lang === 'en') {
+          const map = {
+            '매출/손익 관리': 'SALES & PROFIT',
+            '제품 정보': 'PRODUCT INFO',
+            '가격 관리': 'PRICE MGMT',
+            '시장 정보': 'MARKET INTEL',
+            '대시보드': 'DASHBOARD'
+          };
+          badgeText.textContent = map[categoryName] || categoryName;
+        } else {
+          badgeText.textContent = categoryName;
+        }
       }
     }
 

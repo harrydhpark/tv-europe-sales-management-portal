@@ -6,8 +6,8 @@
     <title>AXIS 시스템 & TV Europe Sales Management Portal 종합 소개 보고서 | LGE Europe TV</title>
     <!-- Tailwind CSS with plugins -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <!-- Google Fonts: Inter, Source Serif 4, Noto Sans KR, JetBrains Mono -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Inter, Source Serif 4, Noto Serif KR, Noto Sans KR, JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
     <!-- Material Symbols Outlined -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <!-- Remixicon CDN -->
@@ -31,7 +31,7 @@
                         "text-muted": "#64748b"
                     },
                     fontFamily: {
-                        headline: ["'Source Serif 4'", "serif"],
+                        headline: ["'Source Serif 4'", "'Noto Serif KR'", "serif"],
                         body: ["Inter", "'Noto Sans KR'", "sans-serif"],
                         mono: ["'JetBrains Mono'", "monospace"]
                     }
@@ -41,7 +41,7 @@
     </script>
     <style>
         body { font-family: 'Inter', 'Noto Sans KR', sans-serif; background-color: #f6faff; color: #0f172a; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Source Serif 4', serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Source Serif 4', 'Noto Serif KR', serif; }
         .font-mono-num { font-family: 'JetBrains Mono', monospace; }
         .nav-item.active { background-color: rgba(255, 255, 255, 0.12); border-left: 4px solid #a50034; color: #ffffff !important; font-weight: 600; }
         .nav-item { border-left: 4px solid transparent; }
@@ -57,9 +57,73 @@
         .clean-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -10px rgba(5, 28, 44, 0.12); }
         .prompt-chip { cursor: pointer; transition: all 0.15s ease; }
         .prompt-chip:hover { border-color: #a50034; background-color: #fff1f2; }
+        /* Unified Smart TopBar Styling */
+        #portal-unified-topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 56px;
+            background-color: #051c2c;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            box-sizing: border-box;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(5, 28, 44, 0.25);
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+        }
+        .portal-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            color: #ffffff !important;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            line-height: 1;
+        }
+        .portal-back-btn:hover {
+            background-color: #0d9488;
+            border-color: #0d9488;
+            color: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(13, 148, 136, 0.35);
+            transform: translateY(-1px);
+        }
+        .topbar-badge {
+            background-color: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #cbd5e1;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+        }
+        .topbar-title {
+            font-family: 'Source Serif 4', 'Noto Serif KR', serif;
+            font-size: 15.5px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
         @media print {
+            #portal-unified-topbar { display: none !important; }
             aside { display: none !important; }
-            main { margin-left: 0 !important; width: 100% !important; }
+            main { margin-left: 0 !important; width: 100% !important; padding-top: 0 !important; }
             .tab-content { display: block !important; page-break-after: always; }
             .no-print { display: none !important; }
             .print-break { page-break-before: always; }
@@ -69,12 +133,42 @@
 <body class="flex min-h-screen">
 
     <!-- ========================================================================= -->
+    <!-- Unified Smart Top Navigation Bar (Fixed 56px) -->
+    <!-- ========================================================================= -->
+    <header id="portal-unified-topbar" class="no-print">
+        <!-- Left Group: Return Button + Category Badge + Title -->
+        <div style="display: flex; align-items: center; gap: 14px;">
+            <a href="../index.html" class="portal-back-btn" id="btn-portal-back" onclick="returnToPortal(event)">
+                <i class="ri-arrow-left-line" style="font-size: 15px;"></i>
+                <span id="portal-back-text">포탈로 돌아가기</span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="topbar-badge" id="topbar-category-badge">시스템 가이드</span>
+                <h1 class="topbar-title" id="topbar-doc-title">AXIS 시스템 소개</h1>
+            </div>
+        </div>
+
+        <!-- Right Group: Print Shortcut + Official Release Badge -->
+        <div style="display: flex; align-items: center; gap: 14px;">
+            <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/5 hover:bg-white/15 border border-white/15 text-xs text-slate-200 font-medium transition-all cursor-pointer" onclick="window.print()" title="보고서 인쇄 및 PDF 저장">
+                <i class="ri-printer-line text-sm text-slate-400"></i>
+                <span class="hidden sm:inline">인쇄 / PDF 저장</span>
+            </button>
+            <div class="h-4 w-px bg-white/15 hidden sm:block"></div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-[11px] font-medium text-emerald-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>공식 배포본 v1.0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
     <!-- Sidebar Navigation (280px / w-72 Fixed) -->
     <!-- ========================================================================= -->
-    <aside class="w-72 bg-primary text-white fixed h-screen flex flex-col z-50 shadow-xl select-none no-print">
+    <aside class="w-72 bg-primary text-white fixed top-[56px] h-[calc(100vh-56px)] flex flex-col z-40 shadow-xl select-none no-print">
         <!-- Brand Header -->
         <div class="p-6 border-b border-white/10 flex-shrink-0 bg-primary-light/40">
-            <h1 class="text-lg font-bold tracking-tight text-white font-headline">AXIS 시스템 종합 소개</h1>
+            <h1 class="text-lg font-bold tracking-tight text-white font-headline">AXIS 시스템 소개</h1>
             <p class="text-[11px] text-white/60 mt-0.5">Sales Portal & Master AI Architecture</p>
         </div>
 
@@ -84,7 +178,7 @@
             
             <button class="nav-item active w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-left text-white/80 hover:text-white hover:bg-white/5 transition-all text-xs" onclick="showTab('tab-overview', this)">
                 <span class="material-symbols-outlined text-base">auto_awesome</span>
-                <span>1. AXIS 시스템 개요</span>
+                <span>1. AXIS 소개</span>
             </button>
 
             <button class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-left text-white/80 hover:text-white hover:bg-white/5 transition-all text-xs" onclick="showTab('tab-master', this)">
@@ -94,36 +188,31 @@
 
             <button class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-left text-white/80 hover:text-white hover:bg-white/5 transition-all text-xs" onclick="showTab('tab-portal', this)">
                 <span class="material-symbols-outlined text-base">dashboard</span>
-                <span>3. 세일즈 포탈 허브</span>
-            </button>
-
-            <button class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-left text-white/80 hover:text-white hover:bg-white/5 transition-all text-xs" onclick="showTab('tab-subagents', this)">
-                <span class="material-symbols-outlined text-base">smart_toy</span>
-                <span>4. 15대 서브 에이전트 소개</span>
+                <span>3. 세일즈 포탈 구성</span>
             </button>
 
             <button class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-left text-white/80 hover:text-white hover:bg-white/5 transition-all text-xs" onclick="showTab('tab-db', this)">
                 <span class="material-symbols-outlined text-base">database</span>
-                <span>5. DB 구조 & 파이프라인</span>
+                <span>4. DB 구조 & 파이프라인</span>
             </button>
 
             <button class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-left text-white/80 hover:text-white hover:bg-white/5 transition-all text-xs" onclick="showTab('tab-security', this)">
                 <span class="material-symbols-outlined text-base">verified_user</span>
-                <span>6. 보안 구성 & 거버넌스</span>
+                <span>5. 보안 구성 & 거버넌스</span>
             </button>
 
             <button class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-left text-white/80 hover:text-white hover:bg-white/5 transition-all text-xs" onclick="showTab('tab-scenarios', this)">
                 <span class="material-symbols-outlined text-base">alt_route</span>
-                <span>7. 실무 활용 방안 & 시나리오</span>
+                <span>6. 실무 활용 방안 & 시나리오</span>
             </button>
 
             <button class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-left text-white/80 hover:text-white hover:bg-white/5 transition-all text-xs" onclick="showTab('tab-roadmap', this)">
                 <span class="material-symbols-outlined text-base">trending_up</span>
-                <span>8. FAQ, 도입효과 & 로드맵</span>
+                <span>7. FAQ, 도입효과 & 로드맵</span>
             </button>
 
             <div class="pt-5 px-3">
-                <a href="../index.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-secondary/20 hover:bg-secondary text-white transition-all text-xs font-semibold border border-secondary/40 shadow-sm">
+                <a href="../index.html" onclick="returnToPortal(event)" class="flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-secondary/20 hover:bg-secondary text-white transition-all text-xs font-semibold border border-secondary/40 shadow-sm cursor-pointer">
                     <span class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-sm text-secondary group-hover:text-white">arrow_back</span>
                         <span>세일즈 포탈로 이동</span>
@@ -143,15 +232,15 @@
     <!-- ========================================================================= -->
     <!-- Main Content Area -->
     <!-- ========================================================================= -->
-    <main class="flex-1 ml-72 min-h-screen bg-surface flex flex-col">
+    <main class="flex-1 ml-72 min-h-screen bg-surface flex flex-col pt-[56px]">
         <!-- Top Sticky Toolbar -->
-        <header class="h-16 bg-white border-b border-border-subtle sticky top-0 z-40 px-8 flex items-center justify-between shadow-sm no-print">
+        <header class="h-16 bg-white border-b border-border-subtle sticky top-[56px] z-30 px-8 flex items-center justify-between shadow-sm no-print">
             <div class="flex items-center gap-3">
                 <span class="text-xs font-semibold text-text-muted">TV Europe Sales Management</span>
                 <span class="text-xs text-text-muted">/</span>
                 <span class="text-xs text-text-muted">System Architecture Guide</span>
                 <span class="text-xs text-text-muted">/</span>
-                <span class="text-xs font-bold text-primary" id="breadcrumb-title">1. AXIS 시스템 개요</span>
+                <span class="text-xs font-bold text-primary" id="breadcrumb-title">1. AXIS 소개</span>
             </div>
             <div class="flex items-center gap-3">
                 <button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-md border border-border-subtle hover:bg-slate-50 text-xs font-semibold text-slate-700 transition shadow-sm" onclick="window.print()">
@@ -170,15 +259,15 @@
         <div class="p-8 max-w-7xl w-full mx-auto flex-1 space-y-8">
 
             <!-- ========================================================================= -->
-            <!-- TAB 1: AXIS 시스템 개요 (Text & Diagram Focused) -->
+            <!-- TAB 1: AXIS 소개 (Text & Diagram Focused) -->
             <!-- ========================================================================= -->
             <section id="tab-overview" class="tab-content active space-y-8">
                 
                 <!-- 1. Chapter Title Header (Clean Executive Standard) -->
                 <div class="border-b border-slate-200 pb-5">
-                    <h2 class="text-2xl font-bold text-primary tracking-tight font-headline">1. AXIS 시스템 개요</h2>
-                    <p class="text-sm text-text-muted mt-1 leading-relaxed">
-                        AXIS는 업무별 에이전트와 세일즈 포탈을 통합 관리하는 마스터 에이전트입니다. 전사 영업 데이터를 기반으로 복잡한 분석을 해결하며 최적의 해외영업 전략 및 의사결정을 뒷받침합니다.
+                    <h2 class="text-2xl font-bold text-primary tracking-tight font-headline">1. AXIS 소개</h2>
+                    <p class="font-headline text-[15.5px] font-medium text-slate-800 mt-2.5 leading-relaxed tracking-normal">
+                        AXIS는 업무별 에이전트와 세일즈 포탈을 통합 관리하는 마스터 에이전트입니다. 세일즈 포탈의 대시보드들을 통해 정보를 제공함과 동시에 과제 수행을 통해 전사 영업 데이터를 기반으로 복잡한 분석을 해결하며 최적의 해외영업 전략 및 의사결정을 뒷받침합니다.
                     </p>
                 </div>
 
@@ -1001,126 +1090,22 @@
             <!-- ========================================================================= -->
             <!-- TAB 3: 세일즈 포탈 허브 (Portal Architecture & UI/UX) -->
             <!-- ========================================================================= -->
+                        <!-- ========================================================================= -->
+            <!-- TAB 3: 세일즈 포탈 구성 (Portal Dashboards & Sub-Agents) -->
+            <!-- ========================================================================= -->
+                        <!-- ========================================================================= -->
+            <!-- TAB 3: 세일즈 포탈 구성 (Portal Dashboards & Sub-Agents) -->
+            <!-- ========================================================================= -->
             <section id="tab-portal" class="tab-content space-y-6">
                 <div class="border-b border-slate-200 pb-5">
-                    <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-blue-100 text-blue-700 text-xs font-semibold mb-2">
-                        <span class="material-symbols-outlined text-sm">dashboard</span>
-                        <span>Single Access Point for Europe TV Sales</span>
-                    </div>
-                    <h2 class="text-2xl font-bold text-primary tracking-tight">3. 세일즈 포탈 허브</h2>
-                    <p class="text-sm text-text-muted mt-1">유럽 15개국 법인의 영업·손익·제품·가격·시장 정보를 한곳에서 탐색하는 단일 통합 웹 플랫폼</p>
-                </div>
-
-                <!-- 4 Major Pillars of Portal Layout -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3 clean-card">
-                        <div class="flex items-center gap-2.5 text-primary">
-                            <span class="material-symbols-outlined text-2xl text-blue-600">view_sidebar</span>
-                            <h3 class="text-base font-bold">1. 280px 고정 좌측 사이드바 & 4대 카테고리 아코디언</h3>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            업무 목적에 따라 <strong>매출/손익 관리, 제품 정보, 가격 관리, 시장 정보</strong>의 4대 카테고리로 명확히 구분되어 있으며, 
-                            아코디언 토글을 통해 원하는 서브 대시보드로 1클릭 만에 즉시 접근할 수 있습니다. 상단에는 통합 포털 홈 및 즐겨찾기 퀵메뉴가 상시 배치되어 있습니다.
-                        </p>
-                        <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200 text-xs space-y-2">
-                            <div class="flex justify-between items-center text-slate-700">
-                                <span class="font-semibold flex items-center gap-1.5"><i class="ri-line-chart-line text-blue-600"></i> 매출 / 손익 관리</span>
-                                <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-700 text-[10px] font-mono">6개 대시보드</span>
-                            </div>
-                            <div class="flex justify-between items-center text-slate-700">
-                                <span class="font-semibold flex items-center gap-1.5"><i class="ri-tv-line text-blue-600"></i> 제품 정보 / 스펙</span>
-                                <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-700 text-[10px] font-mono">4개 대시보드</span>
-                            </div>
-                            <div class="flex justify-between items-center text-slate-700">
-                                <span class="font-semibold flex items-center gap-1.5"><i class="ri-price-tag-3-line text-blue-600"></i> 가격 관리 / 정책</span>
-                                <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-700 text-[10px] font-mono">2개 대시보드</span>
-                            </div>
-                            <div class="flex justify-between items-center text-slate-700">
-                                <span class="font-semibold flex items-center gap-1.5"><i class="ri-earth-line text-blue-600"></i> 시장 정보 / 경쟁</span>
-                                <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-700 text-[10px] font-mono">3개 대시보드</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3 clean-card">
-                        <div class="flex items-center gap-2.5 text-primary">
-                            <span class="material-symbols-outlined text-2xl text-teal-600">open_in_browser</span>
-                            <h3 class="text-base font-bold">2. 에이전트 내장 뷰어 (Seamless Overlay) & 원클릭 복귀</h3>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            서브 대시보드 클릭 시 별도의 새 창을 띄우지 않고, 포털 상단의 <strong>포탈 탑바(`portal-topbar.js`)</strong>와 함께 내장 아이프레임 뷰어가 즉시 로드됩니다.
-                            작업이 끝나면 상단의 <code class="px-1.5 py-0.5 rounded bg-slate-100 font-mono text-[11px]">← 포탈로 돌아가기</code> 버튼을 눌러 언제든 매끄럽게 포털 홈으로 복귀합니다.
-                        </p>
-                        <div class="bg-slate-900 text-white p-4 rounded-lg text-xs space-y-2 font-mono">
-                            <div class="flex items-center justify-between border-b border-slate-700 pb-2">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                                    <span class="text-slate-400 text-[11px] ml-2">portal-topbar.js</span>
-                                </div>
-                                <span class="text-teal-400 text-[10px]">SSO Token Verified</span>
-                            </div>
-                            <div class="text-[11px] text-slate-300">
-                                [← 포탈로 돌아가기] | TV Europe Sales Management Portal / KPI Sheet
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Live Card Grid Preview Showcase -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                    <h3 class="text-base font-bold text-primary flex items-center gap-2">
-                        <span class="material-symbols-outlined text-secondary">view_carousel</span>
-                        <span>포털 메인 카드 그리드 & 동적 URL 매핑 기능</span>
-                    </h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        포털 메인 화면에는 15개 전문 대시보드의 실시간 상태, 갱신 시각 및 핵심 그래픽 프리뷰(SVG)가 정렬되어 있으며, 
-                        관리자는 우측 상단의 <strong class="text-primary font-semibold">[에이전트 URL 관리]</strong> 모달을 통해 각 서브 에이전트의 배포 주소(Web App URL)를 자유롭게 변경/바인딩할 수 있습니다.
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-                        <div class="border border-slate-200 rounded-lg p-4 bg-slate-50/50">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="text-[11px] font-bold text-teal-700 uppercase">매출/손익 관리</span>
-                                <span class="text-[10px] text-slate-400 font-mono">Live 14:20</span>
-                            </div>
-                            <h4 class="text-sm font-bold text-slate-800">Daily Sales Progress</h4>
-                            <p class="text-[11px] text-slate-500 mt-1">유럽 전 권역 및 18개 법인별 당일 출하 및 월 목표 진척률 모니터링</p>
-                        </div>
-
-                        <div class="border border-slate-200 rounded-lg p-4 bg-slate-50/50">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="text-[11px] font-bold text-amber-700 uppercase">가격 관리</span>
-                                <span class="text-[10px] text-slate-400 font-mono">Today 10:45</span>
-                            </div>
-                            <h4 class="text-sm font-bold text-slate-800">Price Tracker</h4>
-                            <p class="text-[11px] text-slate-500 mt-1">11개국 주요 온라인 유통 실시간 매장가(ASP) 및 경쟁사 Price Gap 분석</p>
-                        </div>
-
-                        <div class="border border-slate-200 rounded-lg p-4 bg-slate-50/50">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="text-[11px] font-bold text-purple-700 uppercase">시장 정보</span>
-                                <span class="text-[10px] text-slate-400 font-mono">2026-09-09</span>
-                            </div>
-                            <h4 class="text-sm font-bold text-slate-800">GfK Monthly Report</h4>
-                            <p class="text-[11px] text-slate-500 mt-1">유럽 15개국 GfK 월간 시장 실판매(Sellout) 및 브랜드별/인치별 M/S</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ========================================================================= -->
-            <!-- TAB 4: 15대 전문 서브 에이전트 소개 (Sub-Agents Full Package) -->
-            <!-- ========================================================================= -->
-            <section id="tab-subagents" class="tab-content space-y-6">
-                <div class="border-b border-slate-200 pb-5">
                     <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-teal-100 text-teal-800 text-xs font-semibold mb-2">
-                        <span class="material-symbols-outlined text-sm">smart_toy</span>
-                        <span>15 Specialized AI Sub-Agents</span>
+                        <span class="material-symbols-outlined text-sm">dashboard_customize</span>
+                        <span>TV Europe Sales Management Portal — 15 Specialized AI Dashboards</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-primary tracking-tight">15대 전문 서브 에이전트 상세 소개</h2>
-                    <p class="text-sm text-text-muted mt-1">포털 네이티브 SVG 그래픽 프리뷰, 원천 파일 입출력 스펙 및 실전 추천 프롬프트 수록</p>
+                    <h2 class="text-2xl font-bold text-primary tracking-tight font-headline">3. 세일즈 포탈 구성</h2>
+                    <p class="font-headline text-[15px] font-medium text-slate-800 mt-2 leading-relaxed">
+                        유럽 15개국 법인의 영업·손익·제품·가격·시장 정보를 4대 비즈니스 카테고리 아래 15개 전문 대시보드로 통합 제공하며, 영업담당자가 업무 목적에 맞춰 최적의 의사결정을 내릴 수 있도록 지원합니다.
+                    </p>
                 </div>
 
                 <!-- Category Filter Buttons -->
@@ -1142,13 +1127,12 @@
                     </button>
                 </div>
 
-                <!-- 15 Agent Cards Grid with Native SVG Graphic Previews -->
+                <!-- 15 Agent Cards Grid with Native SVG Graphic Previews & 3-Part Detailed Specs -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="agent-grid">
-                    
+
                     <!-- 1. Daily Sales Progress -->
                     <div class="agent-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between clean-card" data-category="sales">
                         <div>
-                            <!-- Portal Native Preview SVG -->
                             <div class="w-full h-28 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-2">
                                 <svg viewBox="0 0 300 110" fill="none" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="300" height="110" fill="#F8FAFC"/>
@@ -1178,15 +1162,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     유럽 권역 및 18개 법인별 당월 매출 실시간 진척률, 월 목표 대비 일일 출하 모니터링
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> 사내 HedEj API 실시간 집계 DB</div>
-                                    <div><strong>• 핵심 지표:</strong> 일일 출하 진척률, Run Rate, 전년비(YoY)</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('독일 법인 당월 일일 매출 진척률과 Run Rate 확인해줘')">
-                                        <span>"독일 법인 당월 매출 진척률 확인해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            사내 HedEj 일일 실시간 출하 집계 DB (ERP 출하 실적 및 법인별 당월 물동 목표)
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            HedEj Cloud Realtime Cache & High-Speed In-Memory API
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 일일 출하 진척률(%), Run Rate(월말 달성 예상율), 법인별 일일 출하량, 전년비(YoY)</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 유럽 18개 법인의 당월 매출 진척 속도를 실시간 모니터링하여, 진척이 지연되는 법인 및 채널에 대해 월중 긴급 출하 독려 및 월말 마감 목표 달성을 위한 기동적 물동 조정에 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1218,6 +1227,7 @@
                                     <text x="190" y="76" fill="#475569" font-family="Inter, sans-serif" font-size="10" font-weight="600">WOS TARGET</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-teal-50 text-teal-700 uppercase">매출/손익 · Weekly</span>
@@ -1227,15 +1237,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     권역 및 법인별 매출 실적, 출하 및 유통 재고 주수(WOS) 등 핵심 영업 KPI 종합 모니터링
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> 26년_유럽+CIS_KPI_2026.xlsx</div>
-                                    <div><strong>• 핵심 지표:</strong> Sell-in/out, WOS(-4), 신모델 비중</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('WOS 6주를 초과한 유럽 법인 목록과 원인을 브리핑해줘')">
-                                        <span>"WOS 6주 초과 법인 목록 브리핑해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            법인별 매출장(Raw/신/구), C-PSI(TTL/신/구), Channel Inventory Display(유통 전시/재고) 엑셀 파일
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            DuckDB 컬럼 지향 OLAP 인덱싱 엔진 & JSON 자동 빌드 파이프라인 (build_dashboard.js)
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 21개 지사/지점별 Sell-in/Sell-out 실적, 신모델 판매 비중(%), 채널별 유통 재고량, 유통 재고주수(WOS -4주 기준)</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 법인 및 주요 거래선별 적정 재고 수준(WOS 4~6주) 초과/결품 여부를 즉각 감지하고, 과다 재고 거래선에 대한 조기 판촉비 투입 협의 및 신모델 중심의 Sell-in 주문 확대 유도에 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1268,6 +1303,7 @@
                                     <circle cx="280" cy="20" r="4" fill="#0D9488"/>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-teal-50 text-teal-700 uppercase">매출/손익 · Monthly</span>
@@ -1277,15 +1313,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     매출원가, 판촉비(BTL), 한계이익, 영업이익 심층 분석 및 법인별 손익 트렌드
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> core/run_pnl_pipeline.py, 손익 엑셀</div>
-                                    <div><strong>• 핵심 지표:</strong> Gross/Net 매출, 판촉비율, 한계이익률</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('영국 법인 8월 판촉비 집행률과 한계이익률 변동 원인 분석해줘')">
-                                        <span>"영국 법인 판촉비 및 한계이익률 분석해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            유럽 전 법인 손익 원천(P&L Master), 거래선별 매출차감(Rebate/Co-op) 실적장, 본부 배부 원가표
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            In-Memory DuckDB 다차원 매트릭스 큐브 & Firebase Cloud Storage
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 법인별 순매출액(Net Sales), 한계이익(MP) 및 한계이익률(MP%), 매출차감율(Sales Deduction Rate %), 시리즈/인치/Account별 손익</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 분기 거래선 공급 협상 시 한계이익률 방어를 위한 최저 마진 마지노선 확인, 고차감 거래선과의 리베이트 조정 협상 근거 마련, OLED/QNED 프리미엄 믹스 개선을 통한 지점별 수익성 제고에 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1299,7 +1360,7 @@
                         </div>
                     </div>
 
-                    <!-- 4. GDMI Weekly Sellout Analysis -->
+                    <!-- 4. GDMI Weekly Sellout -->
                     <div class="agent-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between clean-card" data-category="sales">
                         <div>
                             <div class="w-full h-28 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-2">
@@ -1315,6 +1376,7 @@
                                     <text x="250" y="36" fill="#FFF" font-family="Inter, sans-serif" font-size="9" font-weight="700">SELLOUT</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-teal-50 text-teal-700 uppercase">매출/손익 · Weekly</span>
@@ -1324,15 +1386,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     주차별 유럽 15개국 법인/유통 주간 Sellout 실적, 인치별/시리즈별 판매 추이 분석
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> GDMI 주간 Sellout Raw Data</div>
-                                    <div><strong>• 핵심 지표:</strong> 주차별 Sellout 추세, 유통별 런레이트</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('프랑스 주요 유통별 40주차 OLED 주간 Sellout 실적 비교해줘')">
-                                        <span>"프랑스 유통별 주간 Sellout 실적 비교해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            유럽 18개국 GDMI C-PSI 주간 실판매(Sell-out) 데이터셋 및 유통 보고서
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            고속 DuckDB 인덱싱 및 지사별 사전 계산 집계 테이블 (build_metrics.js)
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 주차별 주간 Sell-out 수량/금액, 전주비(WoW) 및 전년비(YoY) 성장률, 주요 유통 파트너별 판매 비중</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 현지 소비자의 실질 구매 트렌드를 주 단위로 추적하여 출하(Sell-in)와 실판매(Sell-out) 간의 갭을 분석하고, 주말 프로모션 성과 검증 및 차주 발주량(Sell-in) 예측 근거로 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1361,6 +1448,7 @@
                                     <text x="148" y="84" fill="#991B1B" font-family="Inter, sans-serif" font-size="10" font-weight="600">Risk Items Check</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-teal-50 text-teal-700 uppercase">매출/손익 · Monthly</span>
@@ -1370,15 +1458,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     신규 수주 및 출하 전 시나리오별 선행 이익률 예측, 타당성 검증 및 리스크 수주 필터링
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> advance_profitability_data.json</div>
-                                    <div><strong>• 핵심 지표:</strong> 수주 마진율, 최소 타당성 기준 충족 여부</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('이탈리아 대형 프로모션 수주 건의 선행 한계이익률 검증해줘')">
-                                        <span>"이탈리아 수주 건의 선행 마진율 검증해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            미래 6개월 선행 물동 계획(S&OP), 기준 판가표, 생산 원가 추정치 및 환율(FX) 전망 데이터
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            DuckDB 선행 시뮬레이션 연산 엔진 & SQLite 영속 저장소
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 향후 1~2개 분기 예상 한계이익률(Fwd MP%), 원가 변동 영향도, 목표 달성 리스크 지수(Risk Index)</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 신규 라인업 론칭 전 선행 수익성을 사전 시뮬레이션하여, 적자 또는 저수익 예상 모델의 사전 공급 배정 축소 및 판가 인상/원가 절감 방안을 전략적으로 도출하는 데 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1406,6 +1519,7 @@
                                     <text x="30" y="64" fill="#475569" font-family="Inter, sans-serif" font-size="10" font-weight="700">Rebate Cost Slider</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-teal-50 text-teal-700 uppercase">매출/손익 · On-demand</span>
@@ -1415,15 +1529,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     환율(FX), 원가, 유통 장려금 변동 민감도 시뮬레이션 및 손익 시나리오 분석 도구
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> simulator_data.json, simulator_engine.js</div>
-                                    <div><strong>• 핵심 지표:</strong> 환율 민감도, Rebate 1%p 변동 영향</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('EUR/USD 환율이 1.05로 하락할 때 21개 법인 한계이익 민감도 시뮬레이션해줘')">
-                                        <span>"환율 1.05 하락 시 손익 민감도 시뮬레이션해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            환율(EUR/USD/GBP 등) 변동 시나리오, 원가 변동률, 유통 리베이트/장려금 정책표
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            웹 클라이언트 In-Browser 연산 엔진 (WebAssembly/JS) & Firebase App Engine
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 환율 민감도(FX Sensitivity), 장려금(Rebate) 1%p 변동 시 영업이익 증감액, 가격 변동별 손익분기점(BEP)</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 대형 거래선(MediaMarkt, Fnac, Dixons 등)과의 연간/분기 공급 단가 협상 시, 실시간 슬라이더 조작으로 허용 가능한 최대 판촉 할인폭과 마진 마지노선을 즉석 검증하는 데 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1457,6 +1596,7 @@
                                     <text x="165" y="90" fill="#475569" font-family="Inter, sans-serif" font-size="9" font-weight="600">AI SPEC CHATBOT</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 uppercase">제품 정보 · Annual</span>
@@ -1466,15 +1606,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     거래선 상담 2025 실적 리뷰(OLED M/S 51%), 2026 전략 로드맵 및 영문 발표 스크립트(TTS)
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> published/2025-prm-consulting/</div>
-                                    <div><strong>• 핵심 기능:</strong> 48장 HD 슬라이드쇼, AI 스펙 챗봇 연동</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('2026 PRM 자료에서 Wallpaper 9.9mm 핵심 셀링포인트 요약해줘')">
-                                        <span>"Wallpaper 9.9mm 셀링포인트 요약해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            연간 거래선 파트너십 미팅 공식 PPTX 덱, 상품기획 전략 로드맵 문서, 영문 스피치 대본
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            사내 Web App 정적 에셋 스토리지 & 오프라인 인터랙티브 패키지
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 유럽 TV 시장 내 LG 점유율(OLED M/S 51%), 신규 폼팩터(9.9mm 월페이퍼, 투명 OLED) 특장점, 기술 차별화 포인트</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 현지 유통 바이어 및 최고 경영진 대면 미팅 시 슬라이드와 일치하는 전문 영문 발표 스크립트(TTS 연동)와 국문 코멘트를 활용하여 거래선 맞춤형 프리미엄 TV 세일즈 피칭에 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1488,7 +1653,7 @@
                         </div>
                     </div>
 
-                    <!-- 8. TV PRM (로드맵) -->
+                    <!-- 8. TV PRM (제품 로드맵) -->
                     <div class="agent-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between clean-card" data-category="product">
                         <div>
                             <div class="w-full h-28 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-2">
@@ -1509,6 +1674,7 @@
                                     <text x="165" y="81" fill="#0F172A" font-family="Inter, sans-serif" font-size="10" font-weight="600">Active Lineups</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 uppercase">제품 정보 · Monthly</span>
@@ -1518,15 +1684,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     TV 연간 모델 라인업 출시 일정, 시리즈별 출시 캘린더 및 세그먼트 스펙
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> extract_spec_dataset.js</div>
-                                    <div><strong>• 핵심 기능:</strong> 연간 라인업 타임라인, 신규 인치대 출시 현황</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('2026년 3분기 신규 출시 예정인 QNED 모델 라인업 알려줘')">
-                                        <span>"Q3 출시 예정 QNED 모델 라인업 알려줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            본사 HE사업본부 연간 모델 출시 계획표, 분기별 라인업 단종/이관(Clean-Cut) 스케줄
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            중앙 라인업 마스터 레지스트리 DB & DuckDB 스키마
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 인치별/시리즈별 신제품 양산 및 출하 개시 시점(SOP), 구모델 단종 시점, 분기별 전략 라인업 매트릭스</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 연간 사업계획 수립 및 분기 프로모션 캘린더 작성 시 신·구모델 전환(Clean-Cut) 일정에 맞춰 구모델 재고 청산 및 신모델 조기 입점 계획을 선제적으로 조율하는 데 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1558,6 +1749,7 @@
                                     <text x="120" y="68" fill="#3B82F6" font-family="Inter, sans-serif" font-size="9" font-weight="700">MiniLED / High-Hz</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 uppercase">제품 정보 · Real-time</span>
@@ -1567,15 +1759,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     OLED/QNED/NanoCell 모델별 세부 사양 비교 매트릭스 (155개 모델 x 146개 사양 항목)
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> 엑셀 SPEC 정규화 데이터베이스</div>
-                                    <div><strong>• 핵심 기능:</strong> 모델 간 사양 1:1 비교, 패널 주사율 필터</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('OLED65G4와 OLED65C4 모델의 밝기 및 화질 칩셋 사양 차이점 알려줘')">
-                                        <span>"OLED G4 vs C4 화질 사양 차이점 알려줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            전 유럽 출시 400여 개 모델별 마스터 스펙북 엑셀 DB, 패널/화질엔진 세부 사양서
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            고속 검색 클라이언트 인덱스 & AI 스펙 질의응답 임베딩 DB
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 모델별 패널 사양(OLED evo, QNED MiniLED), 화면 주사율(120/144Hz), 오디오 출력, 에너지 효율 등급, 단자 구성</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 유통 바이어의 돌발적인 세부 사양 질의 및 모델 간 1:1 비교 요구 시 즉각 검색하여 답변하고, 경쟁사 동급 모델 대비 강점 사양을 추출하여 제안서에 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1605,6 +1822,7 @@
                                     <text x="185" y="76" fill="#475569" font-family="Inter, sans-serif" font-size="10" font-weight="600">USP Highlight</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 uppercase">제품 정보 · Monthly</span>
@@ -1614,15 +1832,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     전략 모델 및 시리즈별 USP, 셀링 포인트, 주요 유통 타깃 사양 프로파일
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> 07. 제품 소개 사이트.../public/</div>
-                                    <div><strong>• 핵심 기능:</strong> 시리즈별 USP 요약, 거래선 상담 카드</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('C시리즈 대비 B시리즈 OLED의 타깃 유통 세그먼트 프로파일 브리핑해줘')">
-                                        <span>"B시리즈 타깃 유통 프로파일 브리핑해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            글로벌 출시 라인업 가이드, 세그먼트별(초프리미엄, 볼륨, 엔트리) 타깃 고객 분석서
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            제품 메타데이터 카탈로그 DB
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 세그먼트별 권장소비자가격(MSRP) 티어, 주요 USP(Unique Selling Point), 디자인 외관 규격</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 법인별 거래선 라인업 맵핑(Line-up Mapping) 협상 시 우리 제품의 세그먼트 포지셔닝을 정립하고 매장 내 최적의 진열 구좌를 확보하는 데 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1650,6 +1893,7 @@
                                     <text x="32" y="34" fill="#92400E" font-family="Inter, sans-serif" font-size="9" font-weight="700">Gap Alert</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-700 uppercase">가격 관리 · Daily</span>
@@ -1659,15 +1903,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     유럽 11개국 온/오프라인 유통 실시간 판매가(ASP) 추적 및 Price Gap 분석
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> MediaMarkt, Saturn, Amazon 일일 크롤링</div>
-                                    <div><strong>• 핵심 기능:</strong> 최저가 알림, 삼성/TCL 가격 갭, 모델별 ASP</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('독일 MediaMarkt 55인치 OLED 최저가 변동과 삼성 동급 모델과의 가격 갭 비교해줘')">
-                                        <span>"독일 55인치 OLED 최저가 및 가격 갭 비교해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            유럽 11개국 주요 온라인 유통(Amazon, MediaMarkt, Currys 등) 실시간 크롤링 매장가(Street Price)
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            Pan-European Master URL Registry & DuckDB 실시간 가격 수집 파이프라인
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 유통사별 최저 판매가(Street Price), 인치별 ASP, 경쟁사(Samsung, Sony, TCL) 동일 세그먼트 간 Price Gap(€)</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 경쟁사의 기습적인 온라인 가격 인하를 당일 포착하여 유통사 간 가격 무너짐을 방지하고, 경쟁사 가격 공세에 맞춘 맞춤형 매장가 대응(Price Matching) 프로모션 승인에 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1681,7 +1950,7 @@
                         </div>
                     </div>
 
-                    <!-- 12. ATA Guide -->
+                    <!-- 12. ATA Guide (최저판매가이드) -->
                     <div class="agent-card bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between clean-card" data-category="pricing">
                         <div>
                             <div class="w-full h-28 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-2">
@@ -1695,6 +1964,7 @@
                                     <text x="123" y="84" fill="#065F46" font-family="Inter, sans-serif" font-size="10" font-weight="700">Pending Authorization</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-700 uppercase">가격 관리 · Policy</span>
@@ -1704,15 +1974,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     권역별 최저 승인 판매 가격(Floor Price) 가이드라인 및 승인 현황 조회
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> published/docs/ata-guide/</div>
-                                    <div><strong>• 핵심 기능:</strong> 법인별 최저 승인선 대조, 프로모션 판가 승인</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('스페인 법인의 OLED 65인치 C시리즈 현재 ATA 최저승인가격 확인해줘')">
-                                        <span>"스페인 65인치 OLED ATA 승인가격 확인해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            본사 가격 위원회 승인 ATA(Authorized Transaction Amount) 최저 한도 판매가격표 및 할인 기준
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            암호화 인증 가격 승인 DB & 본부 가격 통제 시스템
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 법인별/모델별 승인 최저 판가(Floor Price), 분기별 허용 할인율 상한선, 특별 승인 프로모션 조건</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 대량 공급 B2B 및 성수기 블랙프라이데이 프로모션 기안 시 본사 승인 마지노선 준수 여부를 사전 확인하여 신속한 견적서 발행 및 마진 훼손 방지에 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1742,6 +2037,7 @@
                                     <text x="138" y="84" fill="#6B21A8" font-family="Inter, sans-serif" font-size="10" font-weight="700">EU Countries Sync</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-50 text-purple-700 uppercase">시장 정보 · Monthly</span>
@@ -1751,15 +2047,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     유럽 15개국 GfK 월간 시장 실판매(Sellout) 및 세그먼트 심층 분석 리포트
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> 00. GFK Report/ 국가별 엑셀 시트</div>
-                                    <div><strong>• 핵심 기능:</strong> 시장 규모(Units/Val), 브랜드별 점유율</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('유럽 주요 5개국의 최신 GfK OLED 시장점유율 순위와 격차 정리해줘')">
-                                        <span>"유럽 5개국 GfK OLED 시장점유율 정리해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            유럽 15개국 GfK 월간 공인 Sell-out 집계 패널 원천 데이터
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            DuckDB 월간 M/S 다차원 집계 테이블 & Parquet 스토리지
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 국가별 전체 시장 규모(Market Volume/Value), LG 수량/금액 점유율(M/S %), 경쟁사 M/S 순위, 인치별 시장 비중</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 공식 시장 조사 데이터를 기반으로 자사의 유럽 내 시장 지배력을 점검하고, M/S가 하락하는 국가 및 취약 인치대(예: 75/85/98인치)를 진단하여 타깃 마케팅을 전개하는 데 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1788,6 +2109,7 @@
                                     <text x="112" y="93" fill="#64748B" font-family="Inter, sans-serif" font-size="10">Competitor A</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-50 text-purple-700 uppercase">시장 정보 · Weekly</span>
@@ -1797,15 +2119,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     경쟁사(Samsung, Sony, Hisense) 대비 브랜드별/인치별 Market Share 주간 트렌드
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> ms_trend_data.json, run_pipeline.py</div>
-                                    <div><strong>• 핵심 기능:</strong> 경쟁사 주간 점유율 추이, 인치대별 M/S</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('영국 시장 75인치 이상 초대형 세그먼트에서 삼성과의 점유율 격차 추세 분석해줘')">
-                                        <span>"75인치 이상 대형 세그먼트 M/S 격차 분석해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            연간 누적 GfK 데이터, 전략 세그먼트(OLED, QNED, 초대형 75"↑) 실판매 추이
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            시계열 트렌드 DuckDB 인덱스 & 인터랙티브 차트 엔진
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 분기별 점유율 추이(M/S Trend), 평균판매단가(ASP) 변동률, 프리미엄 시장 지배력 지수</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 중장기 시장 점유율 상승/하강 국면을 파악하고, 경쟁사(중국 브랜드 등)의 저가 침투 동향을 모니터링하여 프리미엄 OLED 수성 전략 및 볼륨존 방어 전략을 수립하는 데 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1833,6 +2180,7 @@
                                     <text x="128" y="30" fill="#065F46" font-family="Inter, sans-serif" font-size="10" font-weight="700">FX Impact Status</text>
                                 </svg>
                             </div>
+                            <!-- Card Body -->
                             <div class="p-5">
                                 <div class="flex justify-between items-start mb-2">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-50 text-purple-700 uppercase">시장 정보 · Live</span>
@@ -1842,15 +2190,40 @@
                                 <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                     주요 통화(EUR, USD, GBP, PLN) 환율 변동 추이 및 실적 리스크 분석
                                 </p>
-                                <div class="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                                    <div><strong>• 원천 데이터:</strong> 실시간 환율 API 스트림</div>
-                                    <div><strong>• 핵심 기능:</strong> 사업계획 기준환율 Gap, 환차손익 시뮬레이션</div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">추천 프롬프트</div>
-                                    <div class="prompt-chip p-2 rounded bg-slate-100/70 border border-slate-200 text-[11px] text-slate-700 flex items-center justify-between" onclick="copyPrompt('사업계획 기준환율 대비 현재 EUR/USD 환율 변동 영향 분석해줘')">
-                                        <span>"사업계획 대비 현재 환율 변동 영향 분석해줘"</span>
-                                        <span class="material-symbols-outlined text-xs text-slate-400">content_copy</span>
+                                
+                                <div class="mt-3.5 space-y-2.5">
+                                    <!-- 1. 원천 데이터 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            <span>원천 데이터</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            유럽 주요 통화(EUR, GBP, CHF, PLN, SEK 등) 및 USD 실시간 매매기준율 환율 피드
+                                        </p>
+                                    </div>
+
+                                    <!-- 2. 연계 DB / 파이프라인 -->
+                                    <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-slate-700 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                            <span>연계 DB / 파이프라인</span>
+                                        </div>
+                                        <p class="text-[11.5px] text-slate-600 leading-relaxed">
+                                            사내 HedEj 환율 API & 실시간 환율 캐시 저장소
+                                        </p>
+                                    </div>
+
+                                    <!-- 3. 핵심 지표 & 영업 실무 활용 방안 -->
+                                    <div class="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200/80 text-xs">
+                                        <div class="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                            <span>핵심 지표 & 영업 실무 활용 방안</span>
+                                        </div>
+                                        <div class="text-[11.5px] text-emerald-950 space-y-1.5 leading-relaxed">
+                                            <div><span class="font-bold text-emerald-800">• 핵심 지표:</span> 주요 통화별 실시간 환율, 월평균/분기평균 환율, 사업계획 환율 대비 변동폭(FX Gap)</div>
+                                            <div><span class="font-bold text-emerald-800">• 실무 활용 목적:</span> 비유로화 국가(영국, 스위스, 폴란드, 스웨덴 등)에 대한 제품 공급가 책정 시 환차손 리스크를 사전 헷지하고, 급격한 환율 변동 시 공급 단가 조정 및 환율 변동분 반영 협상에 활용</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1863,20 +2236,16 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
             </section>
 
-            <!-- ========================================================================= -->
-            <!-- TAB 5: DB 구조 & 파이프라인 (Data Architecture & Engine) -->
-            <!-- ========================================================================= -->
-            <section id="tab-db" class="tab-content space-y-6">
+<section id="tab-db" class="tab-content space-y-6">
                 <div class="border-b border-slate-200 pb-5">
                     <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-slate-100 text-slate-800 text-xs font-semibold mb-2">
                         <span class="material-symbols-outlined text-sm">database</span>
                         <span>Enterprise Data Architecture & High-Speed Pipeline</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-primary tracking-tight">DB 구조 및 데이터 파이프라인</h2>
+                    <h2 class="text-2xl font-bold text-primary tracking-tight font-headline">4. DB 구조 & 파이프라인</h2>
                     <p class="text-sm text-text-muted mt-1">대용량 엑셀 원천 데이터의 고속 파싱, 인덱싱 및 무충돌 저장 표준 아키텍처</p>
                 </div>
 
@@ -1965,7 +2334,7 @@
             </section>
 
             <!-- ========================================================================= -->
-            <!-- TAB 6: 보안 구성 & 거버넌스 (Security & Auth Guard) -->
+            <!-- TAB 5: 보안 구성 & 거버넌스 (Security & Auth Guard) -->
             <!-- ========================================================================= -->
             <section id="tab-security" class="tab-content space-y-6">
                 <div class="border-b border-slate-200 pb-5">
@@ -1973,7 +2342,7 @@
                         <span class="material-symbols-outlined text-sm">verified_user</span>
                         <span>Enterprise Security & Access Governance</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-primary tracking-tight">보안 구성 및 접근 통제 거버넌스</h2>
+                    <h2 class="text-2xl font-bold text-primary tracking-tight font-headline">5. 보안 구성 & 거버넌스</h2>
                     <p class="text-sm text-text-muted mt-1">사내 인가 사용자 보호, SHA-256 인증 가드 및 투명 SSO 세션 보안 아키텍처</p>
                 </div>
 
@@ -2044,7 +2413,7 @@
             </section>
 
             <!-- ========================================================================= -->
-            <!-- TAB 7: 실무 활용 방안 & 시나리오 (Operational Scenarios Full Detail) -->
+            <!-- TAB 6: 실무 활용 방안 & 시나리오 (Operational Scenarios Full Detail) -->
             <!-- ========================================================================= -->
             <section id="tab-scenarios" class="tab-content space-y-6">
                 <div class="border-b border-slate-200 pb-5">
@@ -2052,7 +2421,7 @@
                         <span class="material-symbols-outlined text-sm">alt_route</span>
                         <span>Real-world Operational Use Cases</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-primary tracking-tight">실무 활용 방안 및 핵심 시나리오</h2>
+                    <h2 class="text-2xl font-bold text-primary tracking-tight font-headline">6. 실무 활용 방안 & 시나리오</h2>
                     <p class="text-sm text-text-muted mt-1">영업 실무진과 의사결정권자가 일상 업무에서 AXIS를 활용하는 4대 대표 시나리오 (Before vs. After & Prompt Chips)</p>
                 </div>
 
@@ -2249,7 +2618,7 @@
             </section>
 
             <!-- ========================================================================= -->
-            <!-- TAB 8: FAQ, 도입효과 & 로드맵 (ROI & Roadmap) -->
+            <!-- TAB 7: FAQ, 도입효과 & 로드맵 (ROI & Roadmap) -->
             <!-- ========================================================================= -->
             <section id="tab-roadmap" class="tab-content space-y-6">
                 <div class="border-b border-slate-200 pb-5">
@@ -2257,7 +2626,7 @@
                         <span class="material-symbols-outlined text-sm">trending_up</span>
                         <span>Value Proposition, FAQ & Future Roadmap</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-primary tracking-tight">도입 기대효과, FAQ 및 2026-2027 로드맵</h2>
+                    <h2 class="text-2xl font-bold text-primary tracking-tight font-headline">7. FAQ, 도입효과 & 로드맵</h2>
                     <p class="text-sm text-text-muted mt-1">AXIS 시스템 구축에 따른 정량적/정성적 ROI, 실무자 핵심 질의응답 및 향후 고도화 비전</p>
                 </div>
 
@@ -2507,6 +2876,62 @@
                         btn.click();
                     }
                 });
+            }
+        });
+
+        // Return to Sales Management Portal logic
+        function returnToPortal(e) {
+            if (e) e.preventDefault();
+            
+            const portalUrl = (window.location.hostname.includes('web.app') || window.location.hostname.includes('firebase')) 
+                ? 'https://tv-sales-portal-2026.web.app' 
+                : '../index.html';
+
+            // If opened from another window/tab, try to focus opener and close current tab
+            if (window.opener && !window.opener.closed) {
+                try {
+                    window.opener.focus();
+                    window.close();
+                    return;
+                } catch (err) {
+                    console.log("Could not focus opener or close tab:", err);
+                }
+            }
+
+            // If navigated via history from the portal
+            if (window.history.length > 1 && document.referrer && (document.referrer.includes('tv-sales-portal') || document.referrer.includes('Portal') || document.referrer.includes('index.html'))) {
+                window.history.back();
+                return;
+            }
+
+            // Fallback direct navigation
+            window.location.href = portalUrl;
+        }
+
+        // TopBar Language Sync
+        function updateTopBarLang(lang) {
+            const backText = document.getElementById('portal-back-text');
+            const catBadge = document.getElementById('topbar-category-badge');
+            const docTitle = document.getElementById('topbar-doc-title');
+            if (backText) {
+                backText.textContent = lang === 'en' ? 'Back to Portal' : '포탈로 돌아가기';
+            }
+            if (catBadge) {
+                catBadge.textContent = lang === 'en' ? 'SYSTEM GUIDE' : '시스템 가이드';
+            }
+            if (docTitle) {
+                docTitle.textContent = lang === 'en' ? 'AXIS System Architecture Guide' : 'AXIS 시스템 소개';
+            }
+        }
+
+        // Initialize Language
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialLang = urlParams.get('lang') || localStorage.getItem('portal_lang') || 'ko';
+        updateTopBarLang(initialLang);
+
+        window.addEventListener('dashboardLanguageChanged', function (e) {
+            if (e.detail && e.detail.lang) {
+                updateTopBarLang(e.detail.lang);
             }
         });
     </script>

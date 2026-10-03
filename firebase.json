@@ -18,7 +18,12 @@
         "**/*.tar.gz",
         "inspect_*.js",
         "print_*.js",
-        "test_*.js"
+        "test_*.js",
+        "**/*.wav",
+        "**/*.mp4",
+        "**/*.mp3",
+        "intro-video/**",
+        "동영상/**"
       ],
       "headers": [
         {
