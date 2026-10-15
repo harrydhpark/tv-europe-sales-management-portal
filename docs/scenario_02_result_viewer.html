@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시나리오 02 실전 답변 및 워드 보고서 - AXIS Master AI Agent</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+                        headline: ['Source Serif 4', 'Noto Serif KR', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: '#1B365D',
+                        secondary: '#2563EB',
+                        accent: '#A50034',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #1E293B;
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-mono-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+        }
+        table.custom-matrix-table th {
+            background-color: #1B365D !important;
+            color: #FFFFFF !important;
+            font-size: 0.72rem !important;
+            font-weight: 700 !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
+            border-bottom: 2px solid #0F2027 !important;
+            line-height: 1.35 !important;
+        }
+        table.custom-matrix-table td {
+            font-size: 0.72rem !important;
+            border-color: #E2E8F0 !important;
+        }
+        .timeline-badge {
+            width: 24px;
+            height: 24px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen pb-16">
+
+    <!-- Top Fixed Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[#051c2c] text-white border-b border-slate-700/80 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+            
+            <!-- Left: Back Button & Context Info -->
+            <div class="flex items-center gap-3">
+                <button type="button" 
+                        onclick="returnToGuide()"
+                        class="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs hover:scale-105 active:scale-95 group">
+                    <span class="material-symbols-outlined text-base group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+                    <span>가이드로 돌아가기</span>
+                </button>
+                <div class="h-4 w-px bg-slate-700 hidden sm:block"></div>
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-amber-900/80 text-amber-300 text-[10px] font-bold border border-amber-700/60 hidden md:inline">실전 질의 시나리오 02</span>
+                    <h1 class="text-sm font-bold text-white tracking-tight truncate">2026년 유럽 TV 5대 회의체 시계열 논의 사안 및 유럽 공통·법인별 실행과제 분석 실전 결과</h1>
+                </div>
+            </div>
+
+            <!-- Right: Actions -->
+            <div class="flex items-center gap-2">
+                <button type="button" 
+                        onclick="downloadScenarioDocx()"
+                        class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95">
+                    <span class="material-symbols-outlined text-sm">description</span>
+                    <span class="hidden sm:inline">워드 보고서 다운로드 (.docx)</span>
+                    <span class="sm:hidden">워드 (.docx)</span>
+                </button>
+                <button type="button" 
+                        onclick="window.print()"
+                        class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-medium flex items-center gap-1 transition-all border border-slate-700">
+                    <span class="material-symbols-outlined text-sm">print</span>
+                    <span class="hidden md:inline">인쇄 / PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 space-y-6">
+        
+        <!-- Breadcrumb & Title Banner -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-3">
+            <div class="flex items-center gap-2 text-xs text-slate-500">
+                <span>AXIS 시스템 가이드</span>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+                <span>6. 실무 활용 예시</span>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+                <span class="font-bold text-amber-700">시나리오 02 실전 답변 상세 결과</span>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                    <h2 class="text-xl font-headline font-bold text-slate-900">2026년 유럽 TV 5대 회의체 시계열 추진과제 종합 분석 실전 결과</h2>
+                    <p class="text-xs text-slate-600 mt-1">마스터 에이전트에게 실제 질의하여 산출된 5대 회의체 시계열 종합 브리핑, 4대 전략 축 변천표 및 16개국 전 판매법인/지점 액션 아이템 트래커 원문입니다.</p>
+                </div>
+                <div class="flex items-center gap-2 text-xs bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-slate-600">소요 시간: <strong class="text-amber-700 font-mono">1.2분</strong></span>
+                    <span class="text-slate-300">|</span>
+                    <span class="text-slate-600">분석 범위: <strong class="text-slate-800">2026년 5대 회의체 및 16개국 발표자료 전수</strong></span>
+                </div>
+            </div>
+
+            <!-- Original Query Chip -->
+            <div class="p-3 rounded-lg bg-amber-50/50 border border-amber-100 flex items-center justify-between text-xs font-mono text-slate-800 gap-2">
+                <div class="flex items-center gap-2 truncate">
+                    <span class="px-2 py-0.5 rounded bg-amber-600 text-white text-[10px] font-bold font-sans">실전 질의</span>
+                    <span class="truncate">"2026년 전략회의와 PD회의에서 논의된 사안과 추진과제들을 시계열 순서로 정리해주되 유럽 공통과제와 지점/법인별 과제로 나누어 정리해줘"</span>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-slate-200/80 text-slate-700 text-[10px] font-sans font-medium whitespace-nowrap">정식 Word 보고서 동봉</span>
+            </div>
+        </div>
+
+        <!-- Download Banner Card -->
+        <div class="bg-gradient-to-r from-[#1B365D] to-[#2B6CB0] rounded-xl text-white p-5 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-2xl text-blue-200">description</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-white">경영진 보고용 Word 보고서 (.docx) 원본 동봉</h3>
+                    <p class="text-xs text-blue-100/90 mt-0.5">2026년_유럽TV_전략회의_및_PD회의_종합분석_보고서.docx (32KB, 6대 챕터 정밀 분할 및 전문 서식 완비)</p>
+                </div>
+            </div>
+            <button type="button" 
+                    onclick="downloadScenarioDocx()"
+                    class="px-4 py-2 rounded-lg bg-white text-[#1B365D] hover:bg-blue-50 text-xs font-bold flex items-center gap-2 shadow-xs transition-all hover:scale-105 active:scale-95 shrink-0">
+                <span class="material-symbols-outlined text-base">download</span>
+                <span>워드 보고서 다운로드</span>
+            </button>
+        </div>
+
+        <!-- Section 1: Executive Summary -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-4">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
+                <span class="text-base">📌</span>
+                <span>1. 핵심 경영 요약 (Executive Summary)</span>
+            </h3>
+            
+            <div class="space-y-4 text-xs text-slate-700 leading-relaxed">
+                <p>
+                    2026년 LGE 유럽 TV 사업은 글로벌 거시경제 불확실성, 패널 및 메모리 부품 원가 상승 압박, 그리고 중국계 브랜드(TCL, Hisense)와 경쟁사(삼성 QD-OLED)의 공격적 판가 공세 속에서 <strong>'흑자 달성'</strong>과 <strong>'한계돌파(SG M/S 초과 달성)'</strong>를 최우선 과제로 추진하였습니다. 1년 동안 진행된 5개 회의체(전략회의 3회, PD회의 2회)의 시계열적 논의 흐름은 다음과 같은 명확한 전략적 진화를 보여줍니다.
+                </p>
+
+                <!-- Visual Timeline Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-3 pt-2">
+                    <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 space-y-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="timeline-badge bg-blue-100 text-blue-800">1</span>
+                            <span class="font-bold text-slate-900 text-xs">0202 전략회의</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-blue-700">[원점 정립]</div>
+                        <p class="text-[11px] text-slate-600 leading-normal">
+                            '25년 부진(센싱 미흡, M/S 급락) 반성. <strong>연간 흑자 달성</strong>을 최고 KPI로 선포. W/G 중심 프리미엄 및 QNED7M MiniLED 투입.
+                        </p>
+                    </div>
+
+                    <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 space-y-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="timeline-badge bg-teal-100 text-teal-800">2</span>
+                            <span class="font-bold text-slate-900 text-xs">0414 PD회의</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-teal-700">[NPI 런칭]</div>
+                        <p class="text-[11px] text-slate-600 leading-normal">
+                            신모델 판가 계획 확정, 골든존 진열 점유율 60%↑ 선점, 구모델 5월 청산 및 D2C 자사몰 직판 체계 확대.
+                        </p>
+                    </div>
+
+                    <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 space-y-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="timeline-badge bg-amber-100 text-amber-800">3</span>
+                            <span class="font-bold text-slate-900 text-xs">0520 전략회의</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-amber-700">[중간 점검]</div>
+                        <p class="text-[11px] text-slate-600 leading-normal">
+                            OLED B시리즈 과다 쏠림 억제 및 C/G 상향 믹스 개선. 중국계 85"+ 공세 맞선 QNED85/90 방어벽 구축.
+                        </p>
+                    </div>
+
+                    <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 space-y-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="timeline-badge bg-rose-100 text-rose-800">4</span>
+                            <span class="font-bold text-slate-900 text-xs">0818 PD회의</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-rose-700">[성수기 총력전]</div>
+                        <p class="text-[11px] text-slate-600 leading-normal">
+                            <strong>신모델 ATA 열세 긴급 반전</strong>. 캐시백(Cashback) 전사 내재화, USED 차감율 25% 이하 통제, 4분기 SCM 비상 증량 대비.
+                        </p>
+                    </div>
+
+                    <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 space-y-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="timeline-badge bg-indigo-100 text-indigo-800">5</span>
+                            <span class="font-bold text-slate-900 text-xs">0922 전략회의</span>
+                        </div>
+                        <div class="text-[11px] font-semibold text-indigo-700">[연간 완결/'27 선행]</div>
+                        <p class="text-[11px] text-slate-600 leading-normal">
+                            연말 유통재고 630K(WOS 5.7주) 엄수. <strong>MRGB 전시 6배 확대(34.7K, 판매 673K)</strong> 확정 및 9~12월 판가 인상 $48.1M 반영.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: 4 Pillars Comparative Matrix -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-4">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
+                <span class="text-base">📊</span>
+                <span>2. 4대 전략 축(Pillar) 중심의 시계열 진화 총괄표</span>
+            </h3>
+            
+            <div class="overflow-x-auto border border-slate-200 rounded-lg shadow-2xs">
+                <table class="w-full text-left border-collapse custom-matrix-table">
+                    <thead>
+                        <tr>
+                            <th class="py-2.5 px-3 w-[15%]">전략 축</th>
+                            <th class="py-2.5 px-3 w-[17%]">0202 전략회의 (출발)</th>
+                            <th class="py-2.5 px-3 w-[17%]">0414 PD회의 (런칭)</th>
+                            <th class="py-2.5 px-3 w-[17%]">0520 전략회의 (중간점검)</th>
+                            <th class="py-2.5 px-3 w-[17%]">0818 PD회의 (성수기준비)</th>
+                            <th class="py-2.5 px-3 w-[17%]">0922 전략회의 (완성/차기)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-xs text-slate-700">
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900 bg-slate-50/50">① OLED / 프리미엄</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• W/G 판매 집중<br>• 중장기 Stance 보고<br>• 무선(W) 확판 GTM Task</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• 신모델 판가 확정<br>• 초기 RRP 사수<br>• Net Price 전년비 동등</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• B시리즈 쏠림 억제<br>• C/G 상향 믹스 개선<br>• 삼성 QD-OLED 추적</td>
+                            <td class="py-2.5 px-3 leading-relaxed font-semibold text-rose-700">• ATA 열세 반전 지시<br>• 캐시백 전사 도입<br>• B시리즈 인하 최소화</td>
+                            <td class="py-2.5 px-3 leading-relaxed font-semibold text-blue-900">• 연간 1,485K 사수<br>• 저수익 모델 단종<br>• <strong>ATA TV영속 절대과제</strong></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900 bg-slate-50/50">② QNED / MRGB</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• LCD에서 이기기 준비<br>• QNED7M(MiniLED) 투입<br>• MiniLED 분류 추진</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• 골든존 진열 선점<br>• 경쟁사比 2주 선행<br>• 초대형 85"+ 런칭</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• 중국계 저가 공세 방어<br>• QNED85/90 화질 소구<br>• 하반기 7M 출시 점검</td>
+                            <td class="py-2.5 px-3 leading-relaxed font-semibold text-indigo-700">• GfK RGB Mini 등재<br>• QNED 순수 증량 발굴<br>• True RGB 차별화</td>
+                            <td class="py-2.5 px-3 leading-relaxed font-semibold text-indigo-900">• <strong>MRGB '27년 6배 대확대</strong><br>(전시 9.4K→34.7K, 판매 673K)<br>• 4분기 7개국 검색광고</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900 bg-slate-50/50">③ 유통 / Flooring / WOS</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• Flooring 마진 딜<br>• Distributor 오퍼레이션<br>• NPI Ramp-up 가속</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• 골든존 진열 60%↑<br>• 구모델 5월 청산<br>• 전환기 WOS 7주 통제</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• 상반기 구모델 완판<br>• 매장 실사 진행<br>• WOS 5~6주 유지</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• 유통 차별화 SKU<br>• SCM 4Q 비상 증량<br>• '27년 DM 선행 입력</td>
+                            <td class="py-2.5 px-3 leading-relaxed font-semibold text-emerald-800">• Flooring 9월 완결<br>• <strong>연말재고 630K 통제</strong><br>• <strong>WOS(+8W) 5.7주 엄수</strong></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900 bg-slate-50/50">④ 판가 / 손익 / D2C</td>
+                            <td class="py-2.5 px-3 leading-relaxed font-semibold text-emerald-700">• <strong>연간 '흑자 달성' 선포</strong><br>• SOA 사전 예산제<br>• 360도 길목잡기 마컴</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• Net 판가 전년비 동등<br>• D2C 자사몰 직판 확대<br>• 온라인 BOD 모델 운영</td>
+                            <td class="py-2.5 px-3 leading-relaxed">• 부품 원가 인상 반영<br>• 블프 덤핑 방지<br>• 분기 손익(COI) 재계산</td>
+                            <td class="py-2.5 px-3 leading-relaxed font-semibold text-rose-700">• <strong>USED 25% 이하 통제</strong><br>• 독일 USED $18.9M 절감<br>• 할리우드 영상 검토</td>
+                            <td class="py-2.5 px-3 leading-relaxed font-semibold text-blue-900">• <strong>판가 $11.1M 인상 완료</strong><br>• <strong>추가 $37M 법인별 반영</strong><br>• 스페인 Test Market</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 3: 16 Subsidiaries Action Matrix -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                        <span class="text-base">📋</span>
+                        <span>3. 유럽 16~17개 전 판매법인/지점 통합 액션 아이템 트래커</span>
+                    </h3>
+                    <p class="text-[11px] text-slate-500 mt-0.5">5대 회의체에서 도출된 전 법인/지점의 실행 과제와 본부 지시사항 통합 관리 대장</p>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto border border-slate-200 rounded-lg shadow-2xs">
+                <table class="w-full text-left border-collapse custom-matrix-table font-mono-num">
+                    <thead>
+                        <tr>
+                            <th class="py-2.5 px-3 w-[12%]">법인/지점</th>
+                            <th class="py-2.5 px-3 w-[12%]">관련 회의체</th>
+                            <th class="py-2.5 px-3 w-[30%]">핵심 현안 및 논의 사안</th>
+                            <th class="py-2.5 px-3 w-[34%]">확정된 추진과제 및 완료 기준</th>
+                            <th class="py-2.5 px-3 w-[12%]">주관 부서</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-xs text-slate-700">
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">독일(DG)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0818 / 0922</td>
+                            <td class="py-2.5 px-3">높은 TT 구조 및 CMR(Stiwa) 화질 평가 대응</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">USED $18.9M 절감, 독일향 QNED7 VA패널 공급 검토</td>
+                            <td class="py-2.5 px-3 text-slate-600">법인장 / 상품기획</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">영국(UK)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0202 / 0818 / 0922</td>
+                            <td class="py-2.5 px-3">Currys 신규 T&C 및 API 하락 대응</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">1월 물량 $5M 롤오버, Mix 개선 마진 확보</td>
+                            <td class="py-2.5 px-3 text-slate-600">UK 법인 / SCM</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">프랑스(FS)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0414 / 0818</td>
+                            <td class="py-2.5 px-3">Fnac/Darty 마진 및 스탠바이미 결합 진열</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">공동 마컴 강화, WOS 5.5주 준수, 실판가 방어</td>
+                            <td class="py-2.5 px-3 text-slate-600">FS 법인 / GTM실</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">스페인(ES)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0818 / 0922</td>
+                            <td class="py-2.5 px-3">가판비 1억불 효율화 및 기술 메시지 네이밍</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">스페인 Test Market 신규 네이밍, 캐시백 프로세스</td>
+                            <td class="py-2.5 px-3 text-slate-600">ES 법인 / MS마컴</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">이태리(IS)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0818 / 0922</td>
+                            <td class="py-2.5 px-3">Unieuro OLED 성장세 및 MRGB 카테고리 등재</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">본부 PMS 지원, B시리즈 인하 최소화, 75QNED 증량</td>
+                            <td class="py-2.5 px-3 text-slate-600">IS 법인 / 지원실</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">베네룩스(BN)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0414 / 0818</td>
+                            <td class="py-2.5 px-3">Coolblue 가격 매칭 및 고정비 절감</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">온-오프 옴니채널 마진 사수, 연말 재고 클린컷</td>
+                            <td class="py-2.5 px-3 text-slate-600">BN 법인 / 유럽영업</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">스웨덴/노르딕(SW)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0818 / 0922</td>
+                            <td class="py-2.5 px-3">MRGB90 스탠드 고급화 및 ATS 조기화 요청</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">1폴 스탠드 개발 반영, '27년 90C ATS 4월 조기화</td>
+                            <td class="py-2.5 px-3 text-slate-600">SW 법인 / 상품기획</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">스위스(Swiss)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0202 / 0818 / 0922</td>
+                            <td class="py-2.5 px-3">미디어마트 프로모션 가격 정합성 유지</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">G/W 초프리미엄 집중, 65C67 1,599 CHF 가격 정합 유지</td>
+                            <td class="py-2.5 px-3 text-slate-600">Swiss 지점 / 가격팀</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">체코/슬로바키아(CK)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0414 / 0818</td>
+                            <td class="py-2.5 px-3">로컬 이커머스(Alza) 가격 덤핑 대응</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">캐시백 기반 마진 방어, 저수익 SKU 정리</td>
+                            <td class="py-2.5 px-3 text-slate-600">CK 법인</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">폴란드(PL)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0414 / 0818</td>
+                            <td class="py-2.5 px-3">생산기지 인접 불구 저가 TV 비중 과다</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">Euro RTV 대상 55"↑ OLED 믹스 확대, SA Gap 축소</td>
+                            <td class="py-2.5 px-3 text-slate-600">PL 법인</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">헝가리(HS)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0414 / 0818</td>
+                            <td class="py-2.5 px-3">포린트화(HUF) 급락에 따른 마진 누수</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">환율 연동 슬라이딩 판가제, 안전재고 최소화</td>
+                            <td class="py-2.5 px-3 text-slate-600">HS 법인 / 해외관리</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">루마니아(RO)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0414 / 0818</td>
+                            <td class="py-2.5 px-3">eMAG 온라인 과점 마진 압박</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">Altex 오프라인 진열 확대, 신모델 번들 공급</td>
+                            <td class="py-2.5 px-3 text-slate-600">RO 법인</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">포르투갈(PT)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0202 / 0818</td>
+                            <td class="py-2.5 px-3">OLED API 급락 및 Worten 공세 대응</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">OLED 지표 반전, Worten 공동 펀딩 프로모션</td>
+                            <td class="py-2.5 px-3 text-slate-600">PT 법인 / GTM실</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">오스트리아(AG)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0414 / 0818</td>
+                            <td class="py-2.5 px-3">독일 MMS와의 국경 간 가격 불일치</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">독일 법인과 가격 동기화, AT 전용 물동 분리</td>
+                            <td class="py-2.5 px-3 text-slate-600">AG 법인</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">그리스(MK)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0414 / 0818</td>
+                            <td class="py-2.5 px-3">Kotsovolos 의존도 및 관광 경기</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">여름 B2B 호텔 프로젝트 연계, 연말 수량 사수</td>
+                            <td class="py-2.5 px-3 text-slate-600">MK 법인</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/60">
+                            <td class="py-2.5 px-3 font-bold text-slate-900">동유럽/발틱(LA)</td>
+                            <td class="py-2.5 px-3 text-slate-500">0414 / 0818</td>
+                            <td class="py-2.5 px-3">발틱/동유럽 다국가 물류 비효율</td>
+                            <td class="py-2.5 px-3 font-semibold text-slate-900">중앙 풀필먼트 허브 일원화, 마진 저조 모델 단종</td>
+                            <td class="py-2.5 px-3 text-slate-600">LA 법인 / SCM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 4: Action Items Summary -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-4">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
+                <span class="text-base">💡</span>
+                <span>4. 결론 및 향후 실행 제언</span>
+            </h3>
+            
+            <div class="space-y-3 text-xs text-slate-700 leading-relaxed">
+                <div class="p-3.5 rounded-lg bg-blue-50/60 border border-blue-100 space-y-1">
+                    <strong class="text-blue-900 block font-bold text-xs">1. ATA 개선을 위한 전사 캐시백 체계 고도화:</strong>
+                    <p class="text-slate-700">단순 송장가 인하 경쟁을 지양하고, 소비자 실구매 혜택과 온라인 리뷰 자산을 동시에 확보하는 캐시백 프로세스를 2027년에도 전사 핵심 GTM 툴로 정착시켜야 함.</p>
+                </div>
+                <div class="p-3.5 rounded-lg bg-indigo-50/60 border border-indigo-100 space-y-1">
+                    <strong class="text-indigo-900 block font-bold text-xs">2. 차세대 MRGB 시장 조기 선점:</strong>
+                    <p class="text-slate-700">2027년 소니의 True RGB 출시에 맞서 본부의 전시 투자(34.7천대)와 법인의 Flooring 노력을 일치시키고, 스페인의 브랜드 네이밍 테스트 성과를 전 유럽으로 확산해야 함.</p>
+                </div>
+                <div class="p-3.5 rounded-lg bg-emerald-50/60 border border-emerald-100 space-y-1">
+                    <strong class="text-emerald-900 block font-bold text-xs">3. 엄격한 연말 재고 통제와 2027년 NPI 무결점 전환:</strong>
+                    <p class="text-slate-700">연말 유통재고 630천대(WOS 5.7주)를 반드시 사수하여 구모델 재고 덤핑으로 인한 신모델 런칭 피해를 원천 차단해야 함.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Actions -->
+        <div class="flex items-center justify-between pt-4 border-t border-slate-200 text-xs text-slate-500">
+            <button type="button" 
+                    onclick="returnToGuide()"
+                    class="px-4 py-2 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold flex items-center gap-1.5 transition-all">
+                <span class="material-symbols-outlined text-sm">arrow_back</span>
+                <span>가이드 6장 시나리오로 돌아가기</span>
+            </button>
+
+            <button type="button" 
+                    onclick="downloadScenarioDocx()"
+                    class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold flex items-center gap-2 shadow-sm transition-all hover:scale-105 active:scale-95">
+                <span class="material-symbols-outlined text-sm">file_download</span>
+                <span>워드 보고서 (.docx) 다운로드</span>
+            </button>
+        </div>
+    </main>
+
+    <script>
+        // Return to guide handler
+        function returnToGuide() {
+            if (window.opener && !window.opener.closed) {
+                try {
+                    window.opener.focus();
+                    window.close();
+                    return;
+                } catch(e) {}
+            }
+            window.location.href = 'AXIS_System_Architecture_Guide.html#tab-scenarios';
+        }
+
+        // Embedded base64 of the Word document
+        const SCENARIO_DOCX_B64 = "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";
+
+        function downloadScenarioDocx() {
+            try {
+                const byteCharacters = atob(SCENARIO_DOCX_B64);
+                const byteNumbers = new Array(byteCharacters.length);
+                for (let i = 0; i < byteCharacters.length; i++) {
+                    byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+                const byteArray = new Uint8Array(byteNumbers);
+                const blob = new Blob([byteArray], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+                
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = '2026년_유럽TV_전략회의_및_PD회의_종합분석_보고서.docx';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(link.href);
+            } catch (err) {
+                console.error('Blob download failed, trying direct link:', err);
+                const fallbackLink = document.createElement('a');
+                fallbackLink.href = '2026년_유럽TV_전략회의_및_PD회의_종합분석_보고서.docx';
+                fallbackLink.download = '2026년_유럽TV_전략회의_및_PD회의_종합분석_보고서.docx';
+                document.body.appendChild(fallbackLink);
+                fallbackLink.click();
+                document.body.removeChild(fallbackLink);
+            }
+        }
+    </script>
+</body>
+</html>

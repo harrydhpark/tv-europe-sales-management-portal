@@ -187,36 +187,6 @@ const DASHBOARDS = [
 
   // 2. 제품 정보 (5 Cards)
   {
-    id: "prm-consulting-2025",
-    category: "제품 정보",
-    categoryKey: "product",
-    period: "monthly",
-    title: "2025년 거래선 PRM 상담자료",
-    desc: "유럽 거래선 상담 2025 실적 리뷰(OLED M/S 51%), 2026 전략 로드맵 및 영문 발표 스크립트(TTS) 설명창",
-    updated: "2026-09-30",
-    agentUrl: "https://lge-product-showcase-2026.web.app/docs/2025-prm-consulting/",
-    icon: "ri-slideshow-line",
-    previewSvg: `
-      <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="300" height="110" fill="#F8FAFC"/>
-        <!-- TV Slide Deck Silhouette -->
-        <rect x="25" y="16" width="115" height="66" rx="4" fill="#0F172A"/>
-        <rect x="29" y="20" width="107" height="58" fill="#090D16"/>
-        <text x="36" y="38" fill="#FFF" font-family="IBM Plex Sans, sans-serif" font-size="10" font-weight="700">2026 PRM</text>
-        <text x="36" y="52" fill="#0D9488" font-family="Inter, sans-serif" font-size="8" font-weight="700">OLED M/S 51%</text>
-        <text x="36" y="66" fill="#38BDF8" font-family="Inter, sans-serif" font-size="8">Wallpaper 9.9mm</text>
-        <path d="M 65 82 L 100 82 L 104 92 L 61 92 Z" fill="#475569"/>
-        <!-- Right Info Badges -->
-        <rect x="155" y="20" width="120" height="22" rx="4" fill="#0F172A"/>
-        <text x="165" y="35" fill="#2DD4BF" font-family="Inter, sans-serif" font-size="10" font-weight="700">48 SLIDES (HD)</text>
-        <rect x="155" y="48" width="120" height="22" rx="4" fill="rgba(13,148,136,0.15)" stroke="#0D9488"/>
-        <text x="165" y="63" fill="#0D9488" font-family="Inter, sans-serif" font-size="10" font-weight="700">DUAL SLIDESHOW</text>
-        <rect x="155" y="76" width="120" height="20" rx="4" fill="#E2E8F0"/>
-        <text x="165" y="90" fill="#475569" font-family="Inter, sans-serif" font-size="9" font-weight="600">AI SPEC CHATBOT</text>
-      </svg>
-    `
-  },
-  {
     id: "partner-growth-2027",
     category: "제품 정보",
     categoryKey: "product",
@@ -251,7 +221,7 @@ const DASHBOARDS = [
     category: "제품 정보",
     categoryKey: "product",
     period: "monthly",
-    title: "TV PRM",
+    title: "2026 TV PRM",
     desc: "TV Product Roadmap / 연간 모델 라인업 출시 일정 및 세그먼트 스펙",
     updated: "2026-07-20",
     agentUrl: "https://lge-product-showcase-2026.web.app",
@@ -282,7 +252,7 @@ const DASHBOARDS = [
     category: "제품 정보",
     categoryKey: "product",
     period: "monthly",
-    title: "Spec Sheet",
+    title: "2026 Spec Sheet",
     desc: "OLED/QNED/NanoCell 모델별 세부 사양 비교, 패널 정보 및 기술 사양서 조회",
     updated: "2026-07-19",
     agentUrl: "https://lge-product-showcase-2026.web.app",
@@ -308,7 +278,7 @@ const DASHBOARDS = [
     category: "제품 정보",
     categoryKey: "product",
     period: "monthly",
-    title: "TV Product profile",
+    title: "2026 TV Product profile",
     desc: "전략 모델 및 시리즈별 USP, 셀링 포인트, 주요 유통 타깃 사양 프로파일",
     updated: "2026-07-18",
     agentUrl: "https://lge-product-showcase-2026.web.app",
@@ -367,6 +337,36 @@ const DASHBOARDS = [
     `
   },
 
+  {
+    id: "prm-consulting-2025",
+    category: "제품 정보",
+    categoryKey: "product",
+    period: "monthly",
+    title: "2025년 거래선 PRM 상담자료",
+    desc: "유럽 거래선 상담 2025 실적 리뷰(OLED M/S 51%), 2026 전략 로드맵 및 영문 발표 스크립트(TTS) 설명창",
+    updated: "2026-09-30",
+    agentUrl: "https://lge-product-showcase-2026.web.app/docs/2025-prm-consulting/",
+    icon: "ri-slideshow-line",
+    previewSvg: `
+      <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="110" fill="#F8FAFC"/>
+        <!-- TV Slide Deck Silhouette -->
+        <rect x="25" y="16" width="115" height="66" rx="4" fill="#0F172A"/>
+        <rect x="29" y="20" width="107" height="58" fill="#090D16"/>
+        <text x="36" y="38" fill="#FFF" font-family="IBM Plex Sans, sans-serif" font-size="10" font-weight="700">2026 PRM</text>
+        <text x="36" y="52" fill="#0D9488" font-family="Inter, sans-serif" font-size="8" font-weight="700">OLED M/S 51%</text>
+        <text x="36" y="66" fill="#38BDF8" font-family="Inter, sans-serif" font-size="8">Wallpaper 9.9mm</text>
+        <path d="M 65 82 L 100 82 L 104 92 L 61 92 Z" fill="#475569"/>
+        <!-- Right Info Badges -->
+        <rect x="155" y="20" width="120" height="22" rx="4" fill="#0F172A"/>
+        <text x="165" y="35" fill="#2DD4BF" font-family="Inter, sans-serif" font-size="10" font-weight="700">48 SLIDES (HD)</text>
+        <rect x="155" y="48" width="120" height="22" rx="4" fill="rgba(13,148,136,0.15)" stroke="#0D9488"/>
+        <text x="165" y="63" fill="#0D9488" font-family="Inter, sans-serif" font-size="10" font-weight="700">DUAL SLIDESHOW</text>
+        <rect x="155" y="76" width="120" height="20" rx="4" fill="#E2E8F0"/>
+        <text x="165" y="90" fill="#475569" font-family="Inter, sans-serif" font-size="9" font-weight="600">AI SPEC CHATBOT</text>
+      </svg>
+    `
+  },
   // 3. 가격 관리 (2 Cards)
   {
     id: "price-tracker",
@@ -534,6 +534,7 @@ const PORTAL_I18N = {
       "시장 정보": "'시장 정보' 관련 GfK 시장 분석 및 환율 모니터링 모음입니다."
     },
     nav: {
+      axisGuide: "AXIS 시스템 소개",
       home: "대시보드 포털 홈",
       daily: "Daily 대시보드",
       weekly: "Weekly 대시보드",
@@ -621,6 +622,7 @@ const PORTAL_I18N = {
       "시장 정보": "GfK European market share analysis, competitor monitoring, and FX risk tracking."
     },
     nav: {
+      axisGuide: "AXIS System Guide",
       home: "Dashboard Portal Home",
       daily: "Daily Dashboards",
       weekly: "Weekly Dashboards",
@@ -754,7 +756,7 @@ const DASHBOARD_I18N = {
     updated: { ko: "2026-10-01", en: "2026-10-01" }
   },
   "tv-prm": {
-    title: { ko: "TV PRM", en: "TV PRM" },
+    title: { ko: "2026 TV PRM", en: "2026 TV PRM" },
     desc: {
       ko: "TV Product Roadmap / 연간 모델 라인업 출시 일정 및 세그먼트 스펙",
       en: "TV Product Roadmap / Annual lineup release schedule and segment specifications"
@@ -762,7 +764,7 @@ const DASHBOARD_I18N = {
     updated: { ko: "2026-07-20", en: "2026-07-20" }
   },
   "spec-sheet": {
-    title: { ko: "Spec Sheet", en: "Spec Sheet" },
+    title: { ko: "2026 Spec Sheet", en: "2026 Spec Sheet" },
     desc: {
       ko: "OLED/QNED/NanoCell 모델별 세부 사양 비교, 패널 정보 및 기술 사양서 조회",
       en: "Model-by-model detailed specification matrix (OLED/QNED/NanoCell), panel info & technical lookup"
@@ -770,7 +772,7 @@ const DASHBOARD_I18N = {
     updated: { ko: "2026-07-19", en: "2026-07-19" }
   },
   "tv-profile": {
-    title: { ko: "TV Product profile", en: "TV Product Profile" },
+    title: { ko: "2026 TV Product profile", en: "2026 TV Product Profile" },
     desc: {
       ko: "전략 모델 및 시리즈별 USP, 셀링 포인트, 주요 유통 타깃 사양 프로파일",
       en: "Strategic model USP, core selling points, and target retailer specification profiles"
@@ -877,6 +879,7 @@ function applyPortalTranslations() {
   const t = PORTAL_I18N[currentPortalLang];
 
   // Sidebar
+  const navAxisGuideText = document.getElementById("navAxisGuideText");
   const navHomeText = document.getElementById("navHomeText");
   const navDailyText = document.getElementById("navDailyText");
   const navWeeklyText = document.getElementById("navWeeklyText");
@@ -888,6 +891,7 @@ function applyPortalTranslations() {
   const catTitleMarket = document.getElementById("catTitleMarket");
   const logoutBtnText = document.getElementById("logoutBtnText");
 
+  if (navAxisGuideText) navAxisGuideText.textContent = t.nav.axisGuide;
   if (navHomeText) navHomeText.textContent = t.nav.home;
   if (navDailyText) navDailyText.textContent = t.nav.daily;
   if (navWeeklyText) navWeeklyText.textContent = t.nav.weekly;
@@ -1115,28 +1119,35 @@ const urlConfigList = document.getElementById("urlConfigList");
 const saveUrlsBtn = document.getElementById("saveUrlsBtn");
 const resetUrlsBtn = document.getElementById("resetUrlsBtn");
 
-// Authentication Handlers & Activity Monitoring
+// Authentication Handlers & Activity Monitoring (localStorage with dual-sync)
 function updateAuthActivity() {
-  const authUser = sessionStorage.getItem(AUTH_CONFIG.SESSION_KEY);
+  const authUser = localStorage.getItem(AUTH_CONFIG.SESSION_KEY) || sessionStorage.getItem(AUTH_CONFIG.SESSION_KEY);
   if (authUser) {
-    sessionStorage.setItem(AUTH_CONFIG.TIMESTAMP_KEY, Date.now().toString());
+    const nowStr = Date.now().toString();
+    localStorage.setItem(AUTH_CONFIG.TIMESTAMP_KEY, nowStr);
+    sessionStorage.setItem(AUTH_CONFIG.TIMESTAMP_KEY, nowStr);
   }
 }
 
 function clearAuthSession() {
+  localStorage.removeItem(AUTH_CONFIG.SESSION_KEY);
+  localStorage.removeItem(AUTH_CONFIG.TIMESTAMP_KEY);
   sessionStorage.removeItem(AUTH_CONFIG.SESSION_KEY);
   sessionStorage.removeItem(AUTH_CONFIG.TIMESTAMP_KEY);
 }
 
 function checkAuthStatus() {
   const loginOverlay = document.getElementById("loginOverlay");
-  const authUser = sessionStorage.getItem(AUTH_CONFIG.SESSION_KEY);
-  const lastActivity = sessionStorage.getItem(AUTH_CONFIG.TIMESTAMP_KEY);
+  const authUser = localStorage.getItem(AUTH_CONFIG.SESSION_KEY) || sessionStorage.getItem(AUTH_CONFIG.SESSION_KEY);
+  const lastActivity = localStorage.getItem(AUTH_CONFIG.TIMESTAMP_KEY) || sessionStorage.getItem(AUTH_CONFIG.TIMESTAMP_KEY);
   const now = Date.now();
   
   const isValidSession = authUser && lastActivity && (now - parseInt(lastActivity, 10) < AUTH_CONFIG.TIMEOUT_MS);
   
   if (isValidSession) {
+    // Dual-sync both storages for smooth multi-tab transitions
+    localStorage.setItem(AUTH_CONFIG.SESSION_KEY, authUser);
+    sessionStorage.setItem(AUTH_CONFIG.SESSION_KEY, authUser);
     updateAuthActivity();
     if (loginOverlay) loginOverlay.classList.add("hidden");
     const sidebarUserName = document.getElementById("sidebarUserName");
@@ -1177,8 +1188,11 @@ async function handleLoginSubmit(e) {
     const pwHash = await sha256(enteredPw);
     
     if (idHash === AUTH_CONFIG.ID_HASH && pwHash === AUTH_CONFIG.PW_HASH) {
+      const nowStr = Date.now().toString();
+      localStorage.setItem(AUTH_CONFIG.SESSION_KEY, enteredId);
+      localStorage.setItem(AUTH_CONFIG.TIMESTAMP_KEY, nowStr);
       sessionStorage.setItem(AUTH_CONFIG.SESSION_KEY, enteredId);
-      sessionStorage.setItem(AUTH_CONFIG.TIMESTAMP_KEY, Date.now().toString());
+      sessionStorage.setItem(AUTH_CONFIG.TIMESTAMP_KEY, nowStr);
       if (errorMessage) errorMessage.style.display = "none";
       usernameInput.value = "";
       passwordInput.value = "";
@@ -1373,7 +1387,7 @@ function renderCards() {
     const localizedCategory = getCategoryText(dash.category);
 
     const card = document.createElement("div");
-    card.className = "bento-card";
+    card.className = `bento-card cat-${dash.categoryKey}`;
     card.innerHTML = `
       <div>
         <div class="card-top">
@@ -1382,7 +1396,7 @@ function renderCards() {
         </div>
         <div class="card-body">
           <h3 class="card-title">
-            <i class="${dash.icon}" style="color: ${hasUrl ? 'var(--color-secondary)' : '#64748b'};"></i>
+            <i class="${dash.icon} card-icon"></i>
             ${localizedTitle}
           </h3>
           <p class="card-desc">${localizedDesc}</p>
@@ -1393,7 +1407,7 @@ function renderCards() {
       </div>
       <div class="card-footer">
         <span class="last-updated"><i class="ri-time-line"></i> ${localizedUpdated}</span>
-        <button class="open-dashboard-btn ${hasUrl ? 'linked' : 'unlinked'}" data-id="${dash.id}" title="${hasUrl ? tCard.titleLinked : tCard.titleUnlinked}">
+        <button class="open-dashboard-btn ${hasUrl ? 'linked' : 'unlinked'} cat-${dash.categoryKey}" data-id="${dash.id}" title="${hasUrl ? tCard.titleLinked : tCard.titleUnlinked}">
           <span>${hasUrl ? tCard.openLinked : tCard.openUnlinked}</span>
           <i class="${hasUrl ? 'ri-external-link-line' : 'ri-arrow-right-line'}"></i>
         </button>
@@ -1447,7 +1461,7 @@ function toggleFavorite(id) {
 async function generateSsoUrl(baseUrl) {
   try {
     const authUser = (typeof AUTH_CONFIG !== 'undefined' && AUTH_CONFIG && AUTH_CONFIG.SESSION_KEY) 
-      ? (sessionStorage.getItem(AUTH_CONFIG.SESSION_KEY) || 'LGE135') 
+      ? (localStorage.getItem(AUTH_CONFIG.SESSION_KEY) || sessionStorage.getItem(AUTH_CONFIG.SESSION_KEY) || 'LGE135') 
       : 'LGE135';
     const ts = Date.now();
     const secret = (typeof AUTH_CONFIG !== 'undefined' && AUTH_CONFIG && AUTH_CONFIG.SECRET) 

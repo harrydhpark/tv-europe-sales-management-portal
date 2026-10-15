@@ -13,7 +13,7 @@
   <!-- Remix Icons -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261007_colors_swap">
   <!-- Search Engine Crawling & Indexing Complete Blocker -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
@@ -86,10 +86,18 @@
     <!-- Navigation List -->
     <nav class="sidebar-menu">
       <div class="menu-group">
+        <a href="docs/AXIS_System_Architecture_Guide.html" class="nav-item axis-guide-nav-btn" target="_blank" rel="opener" id="navAxisGuide">
+          <i class="ri-book-read-line nav-icon" style="color: #2DD4BF; font-size: 16px;"></i>
+          <span id="navAxisGuideText" style="font-weight: 700; color: #ffffff;">AXIS 시스템 소개</span>
+          <span class="menu-count" style="background: #0D9488; color: #fff; font-weight: 700;">GUIDE</span>
+        </a>
+
+        <div class="nav-divider" style="height: 1px; background: rgba(255, 255, 255, 0.1); margin: 6px 8px 8px 8px;"></div>
+
         <button class="nav-item active" data-category="ALL" data-period="ALL" id="navHome">
           <i class="ri-home-4-line nav-icon"></i>
           <span id="navHomeText">대시보드 포털 홈</span>
-          <span class="menu-count" id="countAll">15</span>
+          <span class="menu-count" id="countAll">18</span>
         </button>
 
         <button class="nav-item" data-period="DAILY" id="navDaily">
@@ -107,16 +115,8 @@
         <button class="nav-item" data-period="MONTHLY" id="navMonthly">
           <i class="ri-calendar-todo-line nav-icon period-icon-monthly"></i>
           <span id="navMonthlyText">Monthly 대시보드</span>
-          <span class="menu-count" id="countMonthly">9</span>
+          <span class="menu-count" id="countMonthly">12</span>
         </button>
-
-        <div class="nav-divider" style="height: 1px; background: rgba(255, 255, 255, 0.1); margin: 16px 8px 10px 8px;"></div>
-
-        <a href="docs/AXIS_System_Architecture_Guide.html" class="nav-item axis-guide-nav-btn" target="_blank" id="navAxisGuide" style="background: linear-gradient(135deg, rgba(13, 148, 136, 0.15) 0%, rgba(16, 185, 129, 0.12) 100%); border: 1px solid rgba(13, 148, 136, 0.4); text-decoration: none;">
-          <i class="ri-book-read-line nav-icon" style="color: #0D9488; font-size: 16px;"></i>
-          <span style="font-weight: 700; color: #0D9488;">AXIS 시스템 소개</span>
-          <span class="menu-count" style="background: #0D9488; color: #fff; font-weight: 700;">GUIDE</span>
-        </a>
       </div>
 
       <div class="menu-section-label" id="menuSectionLabel">BUSINESS CATEGORIES</div>
@@ -156,12 +156,12 @@
           </div>
         </button>
         <div class="accordion-body">
-          <button class="sub-nav-item" data-id="prm-consulting-2025"><i class="ri-slideshow-line"></i> <span class="sub-nav-label">2025년 거래선 PRM 상담자료</span></button>
           <button class="sub-nav-item" data-id="partner-growth-2027"><i class="ri-movie-line"></i> <span class="sub-nav-label">2027 파트너 성장 전략</span></button>
-          <button class="sub-nav-item" data-id="tv-prm"><i class="ri-tv-2-line"></i> <span class="sub-nav-label">TV PRM</span></button>
-          <button class="sub-nav-item" data-id="spec-sheet"><i class="ri-article-line"></i> <span class="sub-nav-label">Spec Sheet</span></button>
-          <button class="sub-nav-item" data-id="tv-profile"><i class="ri-presentation-line"></i> <span class="sub-nav-label">TV Product profile</span></button>
+          <button class="sub-nav-item" data-id="tv-prm"><i class="ri-tv-2-line"></i> <span class="sub-nav-label">2026 TV PRM</span></button>
+          <button class="sub-nav-item" data-id="spec-sheet"><i class="ri-article-line"></i> <span class="sub-nav-label">2026 Spec Sheet</span></button>
+          <button class="sub-nav-item" data-id="tv-profile"><i class="ri-presentation-line"></i> <span class="sub-nav-label">2026 TV Product profile</span></button>
           <button class="sub-nav-item" data-id="dealer-trip-calendar"><i class="ri-calendar-event-line"></i> <span class="sub-nav-label">거래선 방한 상담 일정 캘린더</span></button>
+          <button class="sub-nav-item" data-id="prm-consulting-2025"><i class="ri-slideshow-line"></i> <span class="sub-nav-label">2025년 거래선 PRM 상담자료</span></button>
         </div>
       </div>
 
@@ -335,6 +335,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=20260918_1"></script>
+  <script src="app.js?v=20261007_colors_swap"></script>
 </body>
 </html>

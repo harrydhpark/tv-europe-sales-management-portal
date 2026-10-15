@@ -201,10 +201,23 @@ body.app-layout {
   color: #ffffff;
 }
 
+.axis-guide-nav-btn {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.20) 0%, rgba(16, 185, 129, 0.16) 100%) !important;
+  border: 1px solid rgba(13, 148, 136, 0.45) !important;
+  text-decoration: none !important;
+}
+
+.axis-guide-nav-btn #navAxisGuideText {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
 .axis-guide-nav-btn:hover {
-  background: linear-gradient(135deg, rgba(13, 148, 136, 0.28) 0%, rgba(16, 185, 129, 0.22) 100%) !important;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.32) 0%, rgba(16, 185, 129, 0.26) 100%) !important;
   border-color: rgba(13, 148, 136, 0.7) !important;
-  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.2);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.25);
   transform: translateY(-1px);
 }
 
@@ -770,6 +783,174 @@ body.app-layout {
   color: var(--color-primary);
   letter-spacing: 0.02em;
 }
+
+/* ========================================================================= */
+/* 4-Category Unified Color System (매출/손익, 제품정보, 가격관리, 시장정보) */
+/* ========================================================================= */
+
+/* 1. Bento Cards Top Accent Border & Hover Shadow */
+.bento-card.cat-sales {
+  border-top: 3.5px solid #0D9488;
+}
+.bento-card.cat-sales:hover {
+  border-color: #0D9488;
+  box-shadow: 0 10px 24px -4px rgba(13, 148, 136, 0.18), 0 4px 8px -2px rgba(13, 148, 136, 0.10);
+}
+
+.bento-card.cat-product {
+  border-top: 3.5px solid #C40046;
+}
+.bento-card.cat-product:hover {
+  border-color: #C40046;
+  box-shadow: 0 10px 24px -4px rgba(196, 0, 70, 0.20), 0 4px 8px -2px rgba(196, 0, 70, 0.12);
+}
+
+.bento-card.cat-pricing {
+  border-top: 3.5px solid #D97706;
+}
+.bento-card.cat-pricing:hover {
+  border-color: #D97706;
+  box-shadow: 0 10px 24px -4px rgba(217, 119, 6, 0.18), 0 4px 8px -2px rgba(217, 119, 6, 0.10);
+}
+
+.bento-card.cat-market {
+  border-top: 3.5px solid #0284C7;
+}
+.bento-card.cat-market:hover {
+  border-color: #0284C7;
+  box-shadow: 0 10px 24px -4px rgba(2, 132, 199, 0.18), 0 4px 8px -2px rgba(2, 132, 199, 0.10);
+}
+
+/* 2. Category Tag Badges */
+.category-tag.sales {
+  background-color: #E6F7F5;
+  color: #0D9488;
+  border: 1px solid rgba(13, 148, 136, 0.25);
+}
+
+.category-tag.product {
+  background-color: #FFF1F2;
+  color: #C40046;
+  border: 1px solid rgba(196, 0, 70, 0.25);
+}
+
+.category-tag.pricing {
+  background-color: #FEF3C7;
+  color: #B45309;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+.category-tag.market {
+  background-color: #E0F2FE;
+  color: #0284C7;
+  border: 1px solid rgba(2, 132, 199, 0.25);
+}
+
+/* 3. Card Title Icons */
+.bento-card.cat-sales .card-title i.card-icon {
+  color: #0D9488;
+}
+.bento-card.cat-product .card-title i.card-icon {
+  color: #C40046;
+}
+.bento-card.cat-pricing .card-title i.card-icon {
+  color: #D97706;
+}
+.bento-card.cat-market .card-title i.card-icon {
+  color: #0284C7;
+}
+
+/* 4. Action Buttons (Open Dashboard) */
+.open-dashboard-btn.linked.cat-sales {
+  background-color: #0D9488;
+}
+.open-dashboard-btn.linked.cat-sales:hover {
+  background-color: #0F766E;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.35);
+}
+
+.open-dashboard-btn.linked.cat-product {
+  background-color: #C40046;
+}
+.open-dashboard-btn.linked.cat-product:hover {
+  background-color: #A50034;
+  box-shadow: 0 2px 8px rgba(196, 0, 70, 0.35);
+}
+
+.open-dashboard-btn.linked.cat-pricing {
+  background-color: #D97706;
+}
+.open-dashboard-btn.linked.cat-pricing:hover {
+  background-color: #B45309;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35);
+}
+
+.open-dashboard-btn.linked.cat-market {
+  background-color: #0284C7;
+}
+.open-dashboard-btn.linked.cat-market:hover {
+  background-color: #0369A1;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+}
+
+/* 5. Top Category Filter Chips Active State */
+.chip-btn[data-category="매출/손익 관리"].active {
+  background-color: #0D9488 !important;
+  border-color: #0D9488 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.35) !important;
+}
+.chip-btn[data-category="매출/손익 관리"]:hover:not(.active) {
+  border-color: #0D9488 !important;
+  color: #0D9488 !important;
+}
+
+.chip-btn[data-category="제품 정보"].active {
+  background-color: #C40046 !important;
+  border-color: #C40046 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(196, 0, 70, 0.35) !important;
+}
+.chip-btn[data-category="제품 정보"]:hover:not(.active) {
+  border-color: #C40046 !important;
+  color: #C40046 !important;
+}
+
+.chip-btn[data-category="가격 관리"].active {
+  background-color: #D97706 !important;
+  border-color: #D97706 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35) !important;
+}
+.chip-btn[data-category="가격 관리"]:hover:not(.active) {
+  border-color: #D97706 !important;
+  color: #D97706 !important;
+}
+
+.chip-btn[data-category="시장 정보"].active {
+  background-color: #0284C7 !important;
+  border-color: #0284C7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
+}
+.chip-btn[data-category="시장 정보"]:hover:not(.active) {
+  border-color: #0284C7 !important;
+  color: #0284C7 !important;
+}
+
+/* 6. Sidebar Category Accordion Badges & Icons */
+#accordion-sales .cat-icon { color: #0D9488 !important; }
+#accordion-sales .cat-count { background: rgba(13, 148, 136, 0.15) !important; color: #2DD4BF !important; }
+
+#accordion-product .cat-icon { color: #C40046 !important; }
+#accordion-product .cat-count { background: rgba(196, 0, 70, 0.18) !important; color: #FFA2B2 !important; }
+
+#accordion-pricing .cat-icon { color: #D97706 !important; }
+#accordion-pricing .cat-count { background: rgba(217, 119, 6, 0.2) !important; color: #FCD34D !important; }
+
+#accordion-market .cat-icon { color: #0284C7 !important; }
+#accordion-market .cat-count { background: rgba(2, 132, 199, 0.2) !important; color: #7DD3FC !important; }
+
 
 .period-badge {
   font-family: var(--font-mono);
