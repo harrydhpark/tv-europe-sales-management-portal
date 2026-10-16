@@ -185,7 +185,38 @@ const DASHBOARDS = [
     `
   },
 
-  // 2. 제품 정보 (5 Cards)
+    // 2. 제품 정보 (7 Cards)
+  {
+    id: "prm-consulting-2027",
+    category: "제품 정보",
+    categoryKey: "product",
+    period: "monthly",
+    title: "2027 거래선 PRM 상담자료",
+    desc: "2027 유럽 TV 파트너사 상담용 전략 덱(46 Slides). 비원어민 바이어 맞춤형 구어체 스피치, 슬라이드 모션 비디오 및 0.9x 실시간 2줄 자막 탑재",
+    updated: "2026-10-15",
+    agentUrl: "https://lge-product-showcase-2026.web.app/docs/2027-europe-partner-consulting/",
+    icon: "ri-slideshow-3-line",
+    previewSvg: `
+      <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="110" fill="#090D16"/>
+        <rect x="20" y="14" width="130" height="74" rx="6" fill="#0F172A" stroke="#C40030" stroke-width="1.5"/>
+        <rect x="25" y="19" width="120" height="64" rx="4" fill="#1E293B"/>
+        <text x="32" y="38" fill="#F8FAFC" font-family="IBM Plex Sans, sans-serif" font-size="9" font-weight="700">2027 PRM DECK</text>
+        <text x="32" y="52" fill="#FF6B81" font-family="Inter, sans-serif" font-size="8" font-weight="700">PARTNER CONSULTING</text>
+        <text x="32" y="66" fill="#38BDF8" font-family="Inter, sans-serif" font-size="7">46 Slides · 0.9x TTS</text>
+        <circle cx="85" cy="51" r="14" fill="rgba(196,0,48,0.3)" stroke="#FF6B81" stroke-width="1.5"/>
+        <polygon points="82,45 92,51 82,57" fill="#FF6B81"/>
+        <!-- Right Info Badges -->
+        <rect x="165" y="18" width="120" height="22" rx="4" fill="#0F172A" stroke="#C40030"/>
+        <text x="175" y="33" fill="#FF6B81" font-family="Inter, sans-serif" font-size="9" font-weight="700">46 SLIDES (HD)</text>
+        <rect x="165" y="46" width="120" height="22" rx="4" fill="rgba(196,0,48,0.15)" stroke="#C40030"/>
+        <text x="175" y="61" fill="#FF6B81" font-family="Inter, sans-serif" font-size="9" font-weight="700">0.9x SMART RESUME</text>
+        <rect x="165" y="74" width="120" height="20" rx="4" fill="#1E293B" stroke="#334155"/>
+        <text x="175" y="88" fill="#94A3B8" font-family="Inter, sans-serif" font-size="8" font-weight="600">LIVE SUBTITLES &amp; VIDEO</text>
+      </svg>
+    `
+  },
+
   {
     id: "partner-growth-2027",
     category: "제품 정보",
@@ -342,7 +373,7 @@ const DASHBOARDS = [
     category: "제품 정보",
     categoryKey: "product",
     period: "monthly",
-    title: "2025년 거래선 PRM 상담자료",
+    title: "2026 거래선 PRM 상담자료",
     desc: "유럽 거래선 상담 2025 실적 리뷰(OLED M/S 51%), 2026 전략 로드맵 및 영문 발표 스크립트(TTS) 설명창",
     updated: "2026-09-30",
     agentUrl: "https://lge-product-showcase-2026.web.app/docs/2025-prm-consulting/",
@@ -740,12 +771,20 @@ const DASHBOARD_I18N = {
     updated: { ko: "2026-07-21", en: "2026-07-21" }
   },
   "prm-consulting-2025": {
-    title: { ko: "2025년 거래선 PRM 상담자료", en: "2025 Dealer PRM Materials" },
+    title: { ko: "2026 거래선 PRM 상담자료", en: "2026 Dealer PRM Materials" },
     desc: {
       ko: "유럽 거래선 상담 2025 실적 리뷰(OLED M/S 51%), 2026 전략 로드맵 및 영문 발표 스크립트(TTS) 설명창",
       en: "European dealer consultation review (OLED M/S 51%), 2026 strategic roadmap & AI spec assistant"
     },
     updated: { ko: "2026-07-24", en: "2026-07-24" }
+  },
+  "prm-consulting-2027": {
+    title: { ko: "2027 거래선 PRM 상담자료", en: "2027 Dealer PRM Materials" },
+    desc: {
+      ko: "2027 유럽 TV 파트너사 상담용 전략 덱(46 Slides). 비원어민 바이어 맞춤형 구어체 스피치, 슬라이드 모션 비디오 및 0.85x 실시간 2줄 자막 탑재",
+      en: "2027 Europe TV Partner Strategy Deck (46 Slides): Conversational presenter speech, slide motion video & 0.9x live subtitles engine"
+    },
+    updated: { ko: "2026-10-15", en: "2026-10-15" }
   },
   "partner-growth-2027": {
     title: { ko: "2027 파트너 성장 전략 (PRM)", en: "2027 Partner Growth Strategy" },
@@ -1050,6 +1089,7 @@ const DEFAULT_AGENT_URLS = {
   "pre-profitability": "https://lge-advance-profitability-2026.web.app",
   "profit-simulator": "https://lge-profitability-simulator-2026.web.app",
   "prm-consulting-2025": "https://lge-product-showcase-2026.web.app/docs/2025-prm-consulting/",
+  "prm-consulting-2027": "https://lge-product-showcase-2026.web.app/docs/2027-europe-partner-consulting/",
   "partner-growth-2027": "https://lge-product-showcase-2026.web.app/docs/2027-partner-growth-strategy/",
   "tv-prm": "https://lge-product-showcase-2026.web.app",
   "spec-sheet": "https://lge-product-showcase-2026.web.app",
